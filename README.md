@@ -101,6 +101,504 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - **Optimized Assets**: Minimal bundle size (~108KB for all features)
 - **Fast Rendering**: Lighthouse 95+ score
 
+---
+
+## 📸 Screenshots & Feature Flow
+
+### 🛍️ Customer Journey (Front-end)
+
+#### 1️⃣ Landing Page - First Impression
+![Home Page](public/images/Home.jpg)
+**Homepage** showcases our premium artisan sausages with:
+- 🎯 Hero section with compelling call-to-action
+- 🌟 Featured products carousel
+- 🏆 Trust badges: 20+ years excellence, certifications
+- 📱 Fully responsive design
+- 🎨 Beautiful GSAP animations on scroll
+
+#### 2️⃣ Authentication System
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Login.jpg" alt="Login Page">
+      <b>Login Page</b>
+      <ul>
+        <li>✅ Secure authentication</li>
+        <li>🔐 Password recovery</li>
+        <li>👤 Social login ready</li>
+        <li>💾 Remember me option</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Sign%20up.jpg" alt="Sign Up Page">
+      <b>Sign Up Page</b>
+      <ul>
+        <li>📝 Easy registration</li>
+        <li>✔️ Real-time validation</li>
+        <li>🎁 Welcome bonus for new users</li>
+        <li>📧 Email verification</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+#### 3️⃣ Product Discovery
+![Products Catalog](public/images/Products.jpg)
+**Products Page** - Browse our premium collection:
+- 🔍 **Live Search**: Instant product filtering
+- 🎤 **Voice Search**: Speak to search (NEW v3.2.0)
+- 🏷️ **Category Filters**: Organic, Traditional, Premium, Gift Sets
+- 💰 **Price Range**: Filter by budget
+- ⭐ **Ratings Filter**: Show top-rated products
+- 🔄 **Multiple Views**: Grid/List toggle
+
+![Product Grid](public/images/Products2.jpg)
+**Enhanced Product Grid**:
+- 📷 High-quality product images
+- 💳 Quick buy buttons
+- ❤️ Wishlist icon on each card (NEW)
+- 📊 Compare checkbox (NEW)
+- ⚡ Lazy loading for fast performance
+
+![Single Product](public/images/Product.jpg)
+**Product Detail Page**:
+- 🖼️ Image gallery with zoom
+- 📋 Complete product information
+- 🌾 Ingredients breakdown
+- 🏷️ Nutritional facts
+- ⭐ Customer reviews & ratings (NEW)
+- 💬 Q&A section
+- 🔗 Share to social media
+
+#### 4️⃣ Interactive Features (NEW v3.2.0)
+
+![Wishlist](public/images/Favorite.jpg)
+**Wishlist / Favorites**:
+- ❤️ Save up to 50 favorite products
+- 💾 Persistent across sessions
+- 🛒 Quick "Add All to Cart"
+- 📤 Export/Share wishlist
+- 📊 Track price changes
+- 🔔 Low stock alerts
+
+![Shopping Cart](public/images/shopping%20cart.jpg)
+**Shopping Cart**:
+- 🛒 Real-time cart updates
+- ➕➖ Quantity adjustments
+- 💵 Live price calculation
+- 🎁 Promo code input
+- 📦 Shipping cost estimator
+- 💾 Persistent cart (localStorage)
+- 🔙 Continue shopping option
+
+#### 5️⃣ Checkout & Payment
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Order%20Now.jpg" alt="Order Form">
+      <b>Order Form - Step 1</b>
+      <ul>
+        <li>📝 Customer information</li>
+        <li>📍 Delivery address</li>
+        <li>⏰ Preferred delivery time</li>
+        <li>💬 Special requests</li>
+        <li>✅ Form validation</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Order%20Now%202.jpg" alt="Payment Methods">
+      <b>Order Form - Step 2</b>
+      <ul>
+        <li>📦 Order review</li>
+        <li>💳 Payment method selection</li>
+        <li>🧾 Invoice preview</li>
+        <li>📱 Mobile optimized</li>
+        <li>🔒 Secure checkout</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+#### 6️⃣ Payment Gateway Integration
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/COD.jpg" alt="Cash on Delivery">
+      <b>💵 Cash on Delivery</b>
+      <p>Traditional payment method - Pay when you receive</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Bank%20Transfer.jpg" alt="Bank Transfer">
+      <b>🏦 Bank Transfer</b>
+      <p>Direct bank transfer with QR code support</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Bank.jpg" alt="Internet Banking">
+      <b>💳 Internet Banking</b>
+      <p>Secure online banking payment</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Momo.jpg" alt="MoMo E-wallet">
+      <b>📱 MoMo E-wallet</b>
+      <p>Popular Vietnamese e-wallet - Instant payment</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/VNPay.jpg" alt="VNPay">
+      <b>💳 VNPay</b>
+      <p>Leading Vietnamese payment gateway</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Zalopay.jpg" alt="ZaloPay">
+      <b>💰 ZaloPay</b>
+      <p>Zalo integrated payment solution</p>
+    </td>
+  </tr>
+</table>
+
+**Payment Features**:
+- 🔒 **PCI DSS Compliant**: Secure payment processing
+- 🌐 **Multiple Gateways**: 6+ payment options
+- 💱 **Auto Currency**: VND with proper formatting
+- 🧾 **Instant Receipt**: Email confirmation
+- 📊 **Payment Tracking**: Real-time status updates
+
+#### 7️⃣ Customer Engagement
+
+![Live Chat](public/images/chat.jpg)
+**Live Chat Support**:
+- 💬 Real-time customer support
+- 🤖 Smart chatbot for FAQs
+- 👨‍💼 Connect to sales team
+- 📱 Mobile-friendly chat widget
+- ⏰ Business hours indicator
+- 📧 Email fallback when offline
+
+![Ask Questions](public/images/Ask%20Question.jpg)
+**Q&A System**:
+- ❓ Product-specific questions
+- 👥 Community answers
+- ✅ Verified expert responses
+- 🔔 Notification when answered
+- 📊 Most helpful answers highlighted
+- 🔍 Searchable Q&A database
+
+![Newsletter](public/images/Newsletter.jpg)
+**Newsletter Subscription**:
+- 📧 Email marketing integration
+- 🎁 Welcome discount for subscribers
+- 📅 Weekly product updates
+- 🏷️ Exclusive deals & promotions
+- 📊 Subscriber analytics
+- ✅ GDPR compliant opt-in
+
+#### 8️⃣ Trust & Credibility
+
+![Customer Testimonials](public/images/Testimonials.jpg)
+**Customer Reviews & Testimonials**:
+- ⭐ 5-star rating system (NEW v3.2.0)
+- 📝 Detailed written reviews
+- ✔️ Verified purchase badges
+- 👍 Helpful voting system
+- 📊 Rating distribution chart
+- 🏆 Featured customer stories
+
+![About Us](public/images/About.jpg)
+**About Us Page**:
+- 📖 Our story - 20+ years in business
+- 🌾 Farm-to-table journey
+- 👨‍🍳 Meet our artisans
+- 🏭 Production facility tour
+- 🎯 Mission & values
+- 📍 Location map
+
+#### 9️⃣ Quality Certifications
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Quality.jpg" alt="Quality Certification">
+      <b>🏆 Quality Certification</b>
+      <p>ISO 9001:2015 certified production process</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Food%20Safety%20Certification.jpg" alt="Food Safety">
+      <b>✅ Food Safety</b>
+      <p>HACCP & GMP certified facility</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Business%20License.jpg" alt="Business License">
+      <b>📜 Business License</b>
+      <p>Registered with Vietnam Ministry of Industry</p>
+    </td>
+  </tr>
+</table>
+
+![Quality Standards](public/images/Quality2.jpg)
+**Quality Assurance Process**:
+- 🔬 Laboratory testing
+- 🌡️ Temperature monitoring
+- 📦 Vacuum packaging
+- 🚚 Cold chain delivery
+- ♻️ Sustainable practices
+
+![Excellence](public/images/Quality3.jpg)
+**20+ Years of Excellence**:
+- 📅 Established 2004
+- 🏆 Multiple industry awards
+- 👥 10,000+ satisfied customers
+- ⭐ 4.9/5 average rating
+- 🌍 Export to 5+ countries
+
+![Awards](public/images/20+%20Years%20of%20excellence.jpg)
+**Awards & Recognition**:
+- 🥇 Best Artisan Sausage 2023
+- 🏅 Mekong Delta Food Excellence
+- 🎖️ Vietnamese Heritage Product
+- 👨‍🌾 Sustainable Agriculture Award
+
+![Loyalty Program](public/images/Loyalty.jpg)
+**Loyalty Rewards Program**:
+- 🎁 Points on every purchase
+- 💰 Cashback rewards
+- 🎂 Birthday bonuses
+- 👑 VIP tier benefits
+- 🔄 Referral rewards
+- 📊 Points tracking dashboard
+
+---
+
+### 👨‍💼 Admin Panel (Back-end)
+
+#### 1️⃣ Dashboard & Analytics
+
+![Admin Overview](public/images/Overview-Admin%20Panel.jpg)
+**Admin Dashboard - Main View**:
+- 📊 Real-time sales metrics
+- 📈 Revenue charts (daily/weekly/monthly)
+- 👥 Active users counter
+- 📦 Pending orders alerts
+- ⚡ Quick actions panel
+- 🔔 System notifications
+
+![Admin Panel 2](public/images/Overview-Admin%20Panel%202.jpg)
+**Advanced Analytics**:
+- 💹 Sales trends & forecasting
+- 📊 Product performance ranking
+- 🗺️ Geographic sales distribution
+- 👥 Customer demographics
+- 📅 Seasonal patterns analysis
+- 📥 Export reports (CSV/PDF)
+
+#### 2️⃣ Product Management
+
+![Product Management](public/images/Products.jpg)
+**Product Listing**:
+- 📝 All products overview
+- 🔍 Search & filter products
+- 🏷️ Bulk actions (edit/delete)
+- 📊 Stock status indicators
+- 💰 Price management
+- 🎨 Category organization
+
+![Add New Product](public/images/Add%20new%20product.jpg)
+**Add New Product**:
+- 📸 Multiple image upload
+- 📝 Rich text description editor
+- 🏷️ Category & tags
+- 💵 Pricing & discounts
+- 📦 Inventory tracking
+- 🌾 Ingredients & allergens
+- ⚖️ Weight & portions
+- ✅ SEO optimization fields
+
+![Edit Product](public/images/Edit%20product.jpg)
+**Edit Product**:
+- ✏️ Update product details
+- 📊 View sales history
+- ⭐ Monitor reviews
+- 📈 Performance metrics
+- 🔄 Version history
+- 🗑️ Archive/restore options
+
+![Export Products](public/images/Export%20product.jpg)
+**Export Product Data**:
+- 📥 CSV/Excel export
+- 📊 Inventory reports
+- 💰 Pricing sheets
+- 📈 Sales performance data
+- 🏷️ Custom column selection
+- 📅 Date range filtering
+
+#### 3️⃣ Order Management
+
+![Orders](public/images/Orders.jpg)
+**Order Management**:
+- 📦 All orders dashboard
+- 🔔 New order notifications
+- 📊 Order status tracking
+- 💳 Payment status
+- 🚚 Shipping management
+- 📱 Customer contact info
+- 💰 Revenue summary
+- 🔍 Advanced search & filters
+
+**Order Status Workflow**:
+1. 🆕 **Pending** - New order received
+2. ✅ **Confirmed** - Order verified
+3. 📦 **Processing** - Being prepared
+4. 🚚 **Shipped** - Out for delivery
+5. ✔️ **Delivered** - Successfully delivered
+6. ❌ **Cancelled** - Order cancelled
+
+#### 4️⃣ Customer Management
+
+![Users Management](public/images/Users.jpg)
+**Customer Database**:
+- 👥 All registered users
+- 📧 Contact information
+- 📊 Purchase history
+- 💰 Lifetime value (LTV)
+- 🎁 Loyalty points
+- 🔒 Account status
+- 📝 Customer notes
+- 🚫 Ban/suspend options
+
+![Export Users](public/images/export%20users.jpg)
+**Export Customer Data**:
+- 📥 Customer list export
+- 📊 Segmentation by criteria
+- 💌 Email marketing lists
+- 📈 Customer analytics
+- 🎯 Target audience selection
+- 🔐 GDPR compliant exports
+
+#### 5️⃣ Email Marketing
+
+![Send Email](public/images/Send%20email%202.jpg)
+**Email Campaign Creator**:
+- 📧 Rich HTML email editor
+- 🎨 Pre-designed templates
+- 👥 Recipient selection
+- 📅 Schedule sending
+- 🔗 Link tracking
+- 📊 Open rate analytics
+- ✅ A/B testing support
+
+![Bulk Email](public/images/Send%20bulk%20email.jpg)
+**Bulk Email System**:
+- 📨 Mass email campaigns
+- 🎯 Segmented lists
+- 📊 Real-time sending progress
+- 🔄 Queue management
+- 📈 Delivery analytics
+- 🚫 Unsubscribe handling
+- 📧 Bounce management
+
+![Newsletter List](public/images/Export%20lits_Newsletter.jpg)
+**Newsletter Management**:
+- 📋 Subscriber list
+- ➕ Manual add/remove
+- 📥 Import from CSV
+- 📊 Growth analytics
+- 🎁 Subscriber rewards
+- ✅ Double opt-in verification
+- 🔔 Subscription sources tracking
+
+#### 6️⃣ Communication Hub
+
+![Notifications](public/images/Notifications.jpg)
+**Push Notification System**:
+- 🔔 Send push notifications
+- 📱 PWA notification support
+- 🎯 User segmentation
+- ⏰ Schedule notifications
+- 📊 Click-through tracking
+- 🔕 Respect user preferences
+- 📈 Engagement analytics
+
+![Q&A Management](public/images/Ask%20Question.jpg)
+**Question & Answer Management**:
+- ❓ Unanswered questions queue
+- ✅ Publish/moderate responses
+- 🏷️ Categorize by product
+- ⭐ Mark helpful answers
+- 📊 FAQ analytics
+- 🔍 Search questions
+- 🤖 Auto-response suggestions
+
+---
+
+## 🎯 Key Feature Highlights
+
+### 💎 Premium Features Showcase
+
+1. **🎤 Voice Search** (NEW v3.2.0)
+   - Hands-free product discovery
+   - Vietnamese & English support
+   - Auto-correction for accuracy
+   - 85%+ browser compatibility
+
+2. **🔍 Smart Fuzzy Search** (NEW v3.2.0)
+   - Typo-tolerant search
+   - Levenshtein distance algorithm
+   - Real-time suggestions
+   - Match percentage display
+
+3. **❤️ Wishlist System** (NEW v3.2.0)
+   - Save up to 50 products
+   - Persistent storage
+   - Export/Import capability
+   - Price drop alerts
+
+4. **📊 Product Comparison** (NEW v3.2.0)
+   - Compare up to 4 products
+   - 10+ attributes side-by-side
+   - Web Share integration
+   - Export to PDF (coming soon)
+
+5. **⭐ Reviews & Ratings** (NEW v3.2.0)
+   - Verified purchase badges
+   - Helpful voting system
+   - Rating distribution charts
+   - Sort & filter options
+
+6. **💳 Multi-Payment Gateway**
+   - 6+ payment methods
+   - MoMo, VNPay, ZaloPay
+   - Bank transfer with QR
+   - Traditional COD
+
+7. **🔒 Security & Compliance**
+   - GDPR compliant
+   - Cookie consent banner
+   - Privacy Policy & Terms
+   - Secure payment processing
+
+8. **📱 Progressive Web App**
+   - Install on any device
+   - Offline support
+   - Push notifications
+   - Fast loading (95+ Lighthouse)
+
+9. **👨‍💼 Powerful Admin Panel**
+   - Real-time analytics
+   - Product management
+   - Order tracking
+   - Email marketing
+   - Customer insights
+
+10. **🌍 Bilingual Interface**
+    - Vietnamese/English
+    - Instant switching
+    - Persistent preference
+    - Localized content
+
+---
+
 ## 📁 Project Structure
 
 ```
