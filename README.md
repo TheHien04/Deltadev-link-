@@ -222,49 +222,101 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 #### 6️⃣ Payment Gateway Integration
 
+##### 💰 Traditional Payment Methods
+
 <table>
   <tr>
-    <td width="33%">
+    <td width="50%">
       <img src="public/images/COD.jpg" alt="Cash on Delivery">
-      <b>💵 Cash on Delivery</b>
-      <p>Traditional payment method - Pay when you receive</p>
+      <b>💵 Cash on Delivery (COD)</b>
+      <ul>
+        <li>💸 Pay when you receive the product</li>
+        <li>✅ No advance payment required</li>
+        <li>🤝 Most trusted payment method in Vietnam</li>
+        <li>📦 Inspect before paying</li>
+        <li>🚚 Available for all delivery areas</li>
+      </ul>
     </td>
-    <td width="33%">
+    <td width="50%">
       <img src="public/images/Bank%20Transfer.jpg" alt="Bank Transfer">
-      <b>🏦 Bank Transfer</b>
-      <p>Direct bank transfer with QR code support</p>
-    </td>
-    <td width="33%">
-      <img src="public/images/Bank.jpg" alt="Internet Banking">
-      <b>💳 Internet Banking</b>
-      <p>Secure online banking payment</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="33%">
-      <img src="public/images/Momo.jpg" alt="MoMo E-wallet">
-      <b>📱 MoMo E-wallet</b>
-      <p>Popular Vietnamese e-wallet - Instant payment</p>
-    </td>
-    <td width="33%">
-      <img src="public/images/VNPay.jpg" alt="VNPay">
-      <b>💳 VNPay</b>
-      <p>Leading Vietnamese payment gateway</p>
-    </td>
-    <td width="33%">
-      <img src="public/images/Zalopay.jpg" alt="ZaloPay">
-      <b>💰 ZaloPay</b>
-      <p>Zalo integrated payment solution</p>
+      <b>🏦 Bank Transfer (Chuyển Khoản)</b>
+      <ul>
+        <li>🏛️ Direct transfer to company bank account</li>
+        <li>📸 QR code for instant scanning</li>
+        <li>💳 Support all Vietnamese banks</li>
+        <li>📧 Auto-confirmation after transfer</li>
+        <li>⚡ Fast processing (5-15 minutes)</li>
+      </ul>
     </td>
   </tr>
 </table>
 
-**Payment Features**:
-- 🔒 **PCI DSS Compliant**: Secure payment processing
-- 🌐 **Multiple Gateways**: 6+ payment options
-- 💱 **Auto Currency**: VND with proper formatting
-- 🧾 **Instant Receipt**: Email confirmation
-- 📊 **Payment Tracking**: Real-time status updates
+##### 🌐 Online Banking & E-wallets
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Bank.jpg" alt="Internet Banking">
+      <b>💳 Internet Banking (ATM Online)</b>
+      <ul>
+        <li>🔐 Secure online banking payment</li>
+        <li>🏦 Connect directly to your bank</li>
+        <li>💳 Visa, Mastercard, JCB accepted</li>
+        <li>🔒 3D Secure authentication</li>
+        <li>⚡ Instant payment confirmation</li>
+        <li>🌐 24/7 available</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Momo.jpg" alt="MoMo E-wallet">
+      <b>📱 MoMo E-wallet</b>
+      <ul>
+        <li>📲 #1 e-wallet in Vietnam</li>
+        <li>⚡ Pay in 3 seconds with QR code</li>
+        <li>🎁 Cashback & promotions</li>
+        <li>💰 No transaction fee</li>
+        <li>🔔 Instant push notifications</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="public/images/VNPay.jpg" alt="VNPay">
+      <b>💳 VNPay Gateway</b>
+      <ul>
+        <li>🏆 Leading Vietnamese payment gateway</li>
+        <li>🏦 Connect to 40+ banks</li>
+        <li>💳 ATM, Visa, Mastercard support</li>
+        <li>📱 VNPay QR code payment</li>
+        <li>🔒 Bank-level security</li>
+        <li>📊 Payment tracking dashboard</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Zalopay.jpg" alt="ZaloPay">
+      <b>💰 ZaloPay</b>
+      <ul>
+        <li>💙 Zalo integrated payment</li>
+        <li>📱 Pay directly from Zalo app</li>
+        <li>🎁 Exclusive ZaloPay deals</li>
+        <li>💸 Split payment feature</li>
+        <li>⚡ One-tap checkout</li>
+        <li>🔔 In-app notifications</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+##### 🎯 Payment Features Highlights
+
+- 🔒 **PCI DSS Compliant**: Bank-grade security for all transactions
+- 🌐 **6 Payment Methods**: Maximum flexibility for customers
+- 💱 **Auto Currency Format**: VND with proper thousand separators (180.000 VNĐ)
+- 🧾 **Instant Receipt**: Email & SMS confirmation immediately
+- 📊 **Real-time Tracking**: Monitor payment status in real-time
+- 🔐 **SSL Encrypted**: All payment data encrypted with 256-bit SSL
+- ♻️ **Auto Refund**: Automatic refund for cancelled orders
+- 📱 **Mobile Optimized**: Seamless payment on all devices
 
 #### 7️⃣ Customer Engagement
 
