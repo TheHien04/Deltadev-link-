@@ -321,17 +321,28 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 #### 6️⃣ Interactive Features (NEW v3.2.0)
 
-![Wishlist](public/images/Favorite.jpg)
-**Wishlist / Favorites**:
-- ❤️ Save up to 50 favorite products
-- � Quick "Add All to Cart"
-- 🔔 Low stock alerts
-
-![Shopping Cart](public/images/shopping%20cart.jpg)
-**Shopping Cart**:
-- 🛒 Real-time cart updates & quantity adjustments
-- 💵 Live price calculation & promo codes
-- 💾 Persistent cart (localStorage)
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Favorite.jpg" alt="Wishlist">
+      <b>Wishlist / Favorites</b>
+      <ul>
+        <li>❤️ Save up to 50 favorite products</li>
+        <li>🛒 Quick "Add All to Cart"</li>
+        <li>🔔 Low stock alerts</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/shopping%20cart.jpg" alt="Shopping Cart">
+      <b>Shopping Cart</b>
+      <ul>
+        <li>🛒 Real-time cart updates & quantity adjustments</li>
+        <li>💵 Live price calculation & promo codes</li>
+        <li>💾 Persistent cart (localStorage)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 #### 7️⃣ Authentication System
 
