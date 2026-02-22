@@ -427,16 +427,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 <table>
   <tr>
-    <td width="25%">
-      <img src="public/images/Products.jpg" alt="Product Listing">
-      <b>Product Listing</b>
-      <ul>
-        <li>📝 All products overview</li>
-        <li>🔍 Search & filter</li>
-        <li>🏷️ Bulk actions</li>
-      </ul>
-    </td>
-    <td width="25%">
+    <td width="33%">
       <img src="public/images/Add%20new%20product.jpg" alt="Add Product">
       <b>Add New Product</b>
       <ul>
@@ -445,7 +436,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>💵 Pricing & inventory</li>
       </ul>
     </td>
-    <td width="25%">
+    <td width="33%">
       <img src="public/images/Edit%20product.jpg" alt="Edit Product">
       <b>Edit Product</b>
       <ul>
@@ -454,7 +445,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>⭐ Monitor reviews</li>
       </ul>
     </td>
-    <td width="25%">
+    <td width="33%">
       <img src="public/images/Export%20product.jpg" alt="Export">
       <b>Export Data</b>
       <ul>
