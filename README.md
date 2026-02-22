@@ -116,31 +116,28 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 📱 Fully responsive design
 - 🎨 Beautiful GSAP animations on scroll
 
-#### 2️⃣ Authentication System
-<table>
-  <tr>
-    <td width="50%">
-      <img src="public/images/Login.jpg" alt="Login Page">
-      <b>Login Page</b>
-      <ul>
-        <li>✅ Secure authentication</li>
-        <li>🔐 Password recovery</li>
-        <li>👤 Social login ready</li>
-        <li>💾 Remember me option</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <img src="public/images/Sign%20up.jpg" alt="Sign Up Page">
-      <b>Sign Up Page</b>
-      <ul>
-        <li>📝 Easy registration</li>
-        <li>✔️ Real-time validation</li>
-        <li>🎁 Welcome bonus for new users</li>
-        <li>📧 Email verification</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+#### 2️⃣ About Us - Our Story
+
+![About Us](public/images/About.jpg)
+**About Us Page**:
+- 📖 Our story - 20+ years in business
+- 🌾 Farm-to-table journey
+- 👨‍🍳 Meet our artisans
+- 🏭 Production facility tour
+- 🎯 Mission & values
+- 📍 Location map
+
+![Awards](public/images/20+%20Years%20of%20excellence.jpg)
+**20+ Years of Excellence**:
+- 📅 Established 2004
+- 🏆 Multiple industry awards
+- 👥 10,000+ satisfied customers
+- ⭐ 4.9/5 average rating
+- 🌍 Export to 5+ countries
+- 🥇 Best Artisan Sausage 2023
+- 🏅 Mekong Delta Food Excellence
+- 🎖️ Vietnamese Heritage Product
+- 👨‍🌾 Sustainable Agriculture Award
 
 #### 3️⃣ Product Discovery
 ![Products Catalog](public/images/Products.jpg)
@@ -170,28 +167,45 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 💬 Q&A section
 - 🔗 Share to social media
 
-#### 4️⃣ Interactive Features (NEW v3.2.0)
+#### 4️⃣ Quality Certifications & Standards
 
-![Wishlist](public/images/Favorite.jpg)
-**Wishlist / Favorites**:
-- ❤️ Save up to 50 favorite products
-- 💾 Persistent across sessions
-- 🛒 Quick "Add All to Cart"
-- 📤 Export/Share wishlist
-- 📊 Track price changes
-- 🔔 Low stock alerts
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Quality.jpg" alt="Quality Certification">
+      <b>🏆 Quality Certification</b>
+      <p>ISO 9001:2015 certified production process</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Food%20Safety%20Certification.jpg" alt="Food Safety">
+      <b>✅ Food Safety</b>
+      <p>HACCP & GMP certified facility</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Business%20License.jpg" alt="Business License">
+      <b>📜 Business License</b>
+      <p>Registered with Vietnam Ministry of Industry</p>
+    </td>
+  </tr>
+</table>
 
-![Shopping Cart](public/images/shopping%20cart.jpg)
-**Shopping Cart**:
-- 🛒 Real-time cart updates
-- ➕➖ Quantity adjustments
-- 💵 Live price calculation
-- 🎁 Promo code input
-- 📦 Shipping cost estimator
-- 💾 Persistent cart (localStorage)
-- 🔙 Continue shopping option
+![Quality Standards](public/images/Quality2.jpg)
+**Quality Assurance Process**:
+- 🔬 Laboratory testing
+- 🌡️ Temperature monitoring
+- 📦 Vacuum packaging
+- 🚚 Cold chain delivery
+- ♻️ Sustainable practices
 
-#### 5️⃣ Checkout & Payment
+![Excellence](public/images/Quality3.jpg)
+**Quality Excellence**:
+- 🏭 State-of-the-art production facility
+- 👨‍🔬 Expert quality control team
+- 📊 Regular third-party audits
+- ✅ Continuous improvement process
+- 🌱 Sustainable sourcing practices
+
+#### 5️⃣ Order Now - Checkout & Payment
 
 <table>
   <tr>
@@ -219,8 +233,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
     </td>
   </tr>
 </table>
-
-#### 6️⃣ Payment Gateway Integration
 
 ##### 💰 Traditional Payment Methods
 
@@ -318,7 +330,55 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - ♻️ **Auto Refund**: Automatic refund for cancelled orders
 - 📱 **Mobile Optimized**: Seamless payment on all devices
 
-#### 7️⃣ Customer Engagement
+#### 6️⃣ Interactive Features (NEW v3.2.0)
+
+![Wishlist](public/images/Favorite.jpg)
+**Wishlist / Favorites**:
+- ❤️ Save up to 50 favorite products
+- 💾 Persistent across sessions
+- 🛒 Quick "Add All to Cart"
+- 📤 Export/Share wishlist
+- 📊 Track price changes
+- 🔔 Low stock alerts
+
+![Shopping Cart](public/images/shopping%20cart.jpg)
+**Shopping Cart**:
+- 🛒 Real-time cart updates
+- ➕➖ Quantity adjustments
+- 💵 Live price calculation
+- 🎁 Promo code input
+- 📦 Shipping cost estimator
+- 💾 Persistent cart (localStorage)
+- 🔙 Continue shopping option
+
+#### 7️⃣ Authentication System
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Login.jpg" alt="Login Page">
+      <b>Login Page</b>
+      <ul>
+        <li>✅ Secure authentication</li>
+        <li>🔐 Password recovery</li>
+        <li>👤 Social login ready</li>
+        <li>💾 Remember me option</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Sign%20up.jpg" alt="Sign Up Page">
+      <b>Sign Up Page</b>
+      <ul>
+        <li>📝 Easy registration</li>
+        <li>✔️ Real-time validation</li>
+        <li>🎁 Welcome bonus for new users</li>
+        <li>📧 Email verification</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+#### 8️⃣ Customer Engagement
 
 ![Live Chat](public/images/chat.jpg)
 **Live Chat Support**:
@@ -347,7 +407,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 📊 Subscriber analytics
 - ✅ GDPR compliant opt-in
 
-#### 8️⃣ Trust & Credibility
+#### 9️⃣ Customer Testimonials & Loyalty
 
 ![Customer Testimonials](public/images/Testimonials.jpg)
 **Customer Reviews & Testimonials**:
@@ -358,26 +418,18 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 📊 Rating distribution chart
 - 🏆 Featured customer stories
 
-![About Us](public/images/About.jpg)
-**About Us Page**:
-- 📖 Our story - 20+ years in business
-- 🌾 Farm-to-table journey
-- 👨‍🍳 Meet our artisans
-- 🏭 Production facility tour
-- 🎯 Mission & values
-- 📍 Location map
+![Loyalty Program](public/images/Loyalty.jpg)
+**Loyalty Rewards Program**:
+- 🎁 Points on every purchase
+- 💰 Cashback rewards
+- 🎂 Birthday bonuses
+- 👑 VIP tier benefits
+- 🔄 Referral rewards
+- 📊 Points tracking dashboard
 
-#### 9️⃣ Quality Certifications
+---
 
-<table>
-  <tr>
-    <td width="33%">
-      <img src="public/images/Quality.jpg" alt="Quality Certification">
-      <b>🏆 Quality Certification</b>
-      <p>ISO 9001:2015 certified production process</p>
-    </td>
-    <td width="33%">
-      <img src="public/images/Food%20Safety%20Certification.jpg" alt="Food Safety">
+### 👨‍💼 Admin Panel (Back-end)
       <b>✅ Food Safety</b>
       <p>HACCP & GMP certified facility</p>
     </td>
