@@ -837,27 +837,7 @@ See [SUPER-FEATURES.md](docs/SUPER-FEATURES.md) for complete documentation.
 - **[Deployment Guide](docs/DEPLOYMENT.md)**: Production deployment
 - **[Changelog v3.2.0](CHANGELOG-v3.2.md)**: What's new in version 3.2.0
 
-## 🏆 Comparison with Major Platforms
-
-See how DeltaDev Link stacks up against industry leaders:
-
-| Feature | Sunday Bite<br>v3.2.0 | Shopify | WooCommerce | Amazon |
-|---------|:---------------------:|:-------:|:-----------:|:------:|
-| **Voice Search** | ✅ | ❌ | ❌ | ✅ |
-| **Fuzzy Search** | ✅ | ✅ | ⚠️ Plugin | ✅ |
-| **Wishlist** | ✅ | ✅ | ⚠️ Plugin | ✅ |
-| **Product Comparison** | ✅ | ⚠️ App | ⚠️ Plugin | ✅ |
-| **Reviews & Ratings** | ✅ | ✅ | ✅ | ✅ |
-| **Modern CSS (2026)** | ✅ | ⚠️ Partial | ❌ | ⚠️ Partial |
-| **PWA Support** | ✅ | ✅ | ⚠️ Plugin | ✅ |
-| **Performance** | ⚡⚡⚡⚡⚡ | ⚡⚡⚡⚡ | ⚡⚡⚡ | ⚡⚡⚡⚡ |
-| **Open Source** | ✅ | ❌ | ✅ | ❌ |
-| **Vietnamese Market** | ✅ **Perfect** | ⚠️ OK | ⚠️ OK | ⚠️ OK |
-| **Cost** | **$0** | $29+/mo | Free + hosting | 8-15% fees |
-
-**Verdict**: DeltaDev Link v3.2.0 matches or exceeds major platforms in features while remaining fully open-source and optimized for the Vietnamese market! 🏆
-
-## 🎯 Key Features Explained
+##  Key Features Explained
 
 ### Voice Search (NEW in v3.2.0)
 ```javascript
@@ -1096,41 +1076,6 @@ npm test
 - **UI Updates**: 60 FPS
 - **Memory Usage**: +5-10MB
 
-## 🐛 Known Issues
-
-None currently. Please report bugs via GitHub Issues.
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) file
-
-## 👥 Team
-
-**DeltaDev Link Development Team**
-- Website: https://thesundaybite.com
-- Email: contact@thesundaybite.com
-- Phone: 0918 883 322
-
-## 🙏 Acknowledgments
-
-- Tailwind CSS team for excellent utility framework
-- GSAP team for animation library
-- Open source community
-
-## 📞 Support
-
-Need help? Contact us:
-- 📧 Email: contact@thesundaybite.com
-- 📱 Phone: 0918 883 322
-- 💬 Zalo: 0918 883 322
-
 ---
 
-**Made with ❤️ in Cai Be, Tien Giang, Vietnam**
+**Made by The Hien** ❤️
