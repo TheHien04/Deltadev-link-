@@ -1,0 +1,164 @@
+/**
+ * Footer Layout Styles
+ */
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: var(--space-12) 0;
+}
+
+.footer .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+    .footer .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ========================================
+   FOOTER LOGO
+   ======================================== */
+
+.footer .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.footer .logo svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.footer .logo span {
+    font-size: var(--text-xl);
+    font-family: var(--font-display);
+    font-weight: var(--font-bold);
+}
+
+/* ========================================
+   FOOTER HEADINGS
+   ======================================== */
+
+.footer h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-4);
+    color: var(--color-white);
+}
+
+/* ========================================
+   FOOTER LISTS
+   ======================================== */
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer li {
+    margin-bottom: var(--space-2);
+}
+
+.footer a {
+    color: var(--color-gray-300);
+    font-size: var(--text-sm);
+    transition: color var(--transition-fast);
+}
+
+.footer a:hover {
+    color: var(--color-white);
+}
+
+/* ========================================
+   FOOTER TEXT
+   ======================================== */
+
+.footer p {
+    color: var(--color-gray-300);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+}
+
+/* ========================================
+   FOOTER CONTACT INFO
+   ======================================== */
+
+.footer .flex {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.footer .flex svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   FOOTER BOTTOM
+   ======================================== */
+
+.footer .border-t {
+    border-top: 1px solid var(--color-gray-700);
+    padding-top: var(--space-8);
+    margin-top: var(--space-8);
+}
+
+.footer .border-t .flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .footer .border-t .flex {
+        flex-direction: row;
+    }
+}
+
+.footer .text-sm {
+    font-size: var(--text-sm);
+    color: var(--color-gray-400);
+}
+
+.footer .text-gray-400 {
+    color: var(--color-gray-400);
+}
+
+/* ========================================
+   BUSINESS HOURS
+   ======================================== */
+
+.footer .space-y-2 {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.footer .justify-between {
+    display: flex;
+    justify-content: space-between;
+}

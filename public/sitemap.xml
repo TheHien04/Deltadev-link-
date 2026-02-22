@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://thesundaybite.com/</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        
+        <!-- Alternate language versions -->
+        <xhtml:link rel="alternate" hreflang="en" href="https://thesundaybite.com/" />
+        <xhtml:link rel="alternate" hreflang="vi" href="https://thesundaybite.com/vi" />
+        
+        <!-- Images -->
+        <image:image>
+            <image:loc>https://thesundaybite.com/images/Product2.jpg</image:loc>
+            <image:title>Vietnamese Lap Xuong on Banana Leaf</image:title>
+            <image:caption>Traditional Vietnamese lap xuong served with rice</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://thesundaybite.com/images/Product3.jpg</image:loc>
+            <image:title>Packaged Lap Xuong</image:title>
+            <image:caption>Premium packaged lap xuong from Cai Be</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://thesundaybite.com/images/Product.1jpg.jpg</image:loc>
+            <image:title>Fresh Lap Xuong</image:title>
+            <image:caption>Freshly made traditional lap xuong</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://thesundaybite.com/images/Certificate.jpg</image:loc>
+            <image:title>Food Safety Certificate</image:title>
+            <image:caption>Official food safety certification</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- About Section -->
+    <url>
+        <loc>https://thesundaybite.com/#about</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Products Section -->
+    <url>
+        <loc>https://thesundaybite.com/#products</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Quality Section -->
+    <url>
+        <loc>https://thesundaybite.com/#quality</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Contact Section -->
+    <url>
+        <loc>https://thesundaybite.com/#contact</loc>
+        <lastmod>2026-02-16</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>

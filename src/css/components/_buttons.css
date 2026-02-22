@@ -1,0 +1,222 @@
+/**
+ * Button Component Styles
+ * Includes: Primary, secondary, and other button variations
+ */
+
+/* ========================================
+   BASE BUTTON STYLES
+   ======================================== */
+
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    user-select: none;
+}
+
+button:disabled,
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ========================================
+   PRIMARY BUTTON (CTA)
+   ======================================== */
+
+.cta-button,
+.button-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button:hover,
+.button-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button:active,
+.button-primary:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   SECONDARY BUTTON
+   ======================================== */
+
+.secondary-button,
+.button-secondary {
+    background: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.secondary-button:hover,
+.button-secondary:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.secondary-button:active,
+.button-secondary:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   OUTLINE BUTTON
+   ======================================== */
+
+.button-outline {
+    background: transparent;
+    color: var(--color-gray-700);
+    border: 2px solid var(--color-gray-300);
+}
+
+.button-outline:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-50);
+}
+
+/* ========================================
+   GHOST BUTTON
+   ======================================== */
+
+.button-ghost {
+    background: transparent;
+    color: var(--color-gray-700);
+}
+
+.button-ghost:hover {
+    background: var(--color-gray-100);
+    color: var(--color-gray-900);
+}
+
+/* ========================================
+   BUTTON SIZES
+   ======================================== */
+
+.button-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+}
+
+.button-lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-lg);
+}
+
+.button-xl {
+    padding: var(--space-5) var(--space-10);
+    font-size: var(--text-xl);
+}
+
+/* ========================================
+   BUTTON WITH ICON
+   ======================================== */
+
+.button svg {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-fast);
+}
+
+.button:hover svg {
+    transform: translateX(4px);
+}
+
+/* ========================================
+   BUTTON VARIANTS
+   ======================================== */
+
+.button-success {
+    background: var(--color-success);
+    color: var(--color-white);
+}
+
+.button-success:hover {
+    background: var(--color-success-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.button-warning {
+    background: var(--color-warning);
+    color: var(--color-white);
+}
+
+.button-warning:hover {
+    background: var(--color-warning-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.button-danger {
+    background: var(--color-danger);
+    color: var(--color-white);
+}
+
+.button-danger:hover {
+    background: var(--color-danger-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   BUTTON GROUP
+   ======================================== */
+
+.button-group {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.button-group .button {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* ========================================
+   LOADING BUTTON
+   ======================================== */
+
+.button-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.button-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid var(--color-white);
+    border-radius: var(--radius-full);
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+}

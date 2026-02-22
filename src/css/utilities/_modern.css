@@ -1,0 +1,411 @@
+/**
+ * Modern CSS Utilities (2026)
+ * Leveraging cutting-edge CSS features
+ */
+
+/* ============================================================
+   1. CSS CONTAINER QUERIES
+   Responsive design based on container size, not viewport
+   ============================================================ */
+
+.container-responsive {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* Small container (< 400px) */
+@container card (max-width: 400px) {
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-image {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+}
+
+/* Medium container (400px - 600px) */
+@container card (min-width: 400px) and (max-width: 600px) {
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .card-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+  }
+}
+
+/* Large container (> 600px) */
+@container card (min-width: 600px) {
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+  }
+}
+
+/* ============================================================
+   2. CSS :HAS() - Parent Selector
+   Style parents based on their children
+   ============================================================ */
+
+/* Card has image - add spacing */
+.card:has(img) {
+  padding-bottom: 1rem;
+}
+
+/* Form has error - highlight parent */
+.form-group:has(input:invalid) {
+  border-left: 3px solid #ef4444;
+  padding-left: 1rem;
+}
+
+/* Navigation has active link - style parent */
+.nav-menu:has(.nav-link.active) {
+  background: linear-gradient(to right, #c41e3a, #e91e63);
+}
+
+/* Button has icon - adjust spacing */
+.button:has(svg) {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Section has empty state - center content */
+.section:has(.empty-state) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+/* ============================================================
+   3. CSS @LAYER - Cascade Layers
+   Better control over CSS specificity
+   ============================================================ */
+
+@layer reset, base, components, utilities, theme;
+
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: #1f2937;
+  }
+}
+
+@layer components {
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-center { text-align: center; }
+  .flex { display: flex; }
+  .grid { display: grid; }
+}
+
+@layer theme {
+  :root {
+    --color-primary: #c41e3a;
+    --color-accent: #ff6384;
+    --color-success: #22c55e;
+  }
+}
+
+/* ============================================================
+   4. VIEW TRANSITIONS API - CSS
+   Smooth transitions when navigating
+   ============================================================ */
+
+/* Default view transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Fade in/out */
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Slide up transition for products */
+::view-transition-old(product),
+::view-transition-new(product) {
+  animation-duration: 0.4s;
+}
+
+::view-transition-old(product) {
+  animation-name: slide-up-out;
+}
+
+::view-transition-new(product) {
+  animation-name: slide-up-in;
+}
+
+@keyframes slide-up-out {
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up-in {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   5. MODERN SCROLL SNAP
+   Smooth scrolling with snap points
+   ============================================================ */
+
+.scroll-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.scroll-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  flex: 0 0 80%;
+}
+
+/* Smooth scrollbar */
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #c41e3a;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   6. MODERN GRADIENT BORDERS
+   Using background-clip and gradients
+   ============================================================ */
+
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, #c41e3a, #ff6384, #fbbf24);
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: calc(1rem - 2px);
+  z-index: -1;
+}
+
+/* ============================================================
+   7. BACKDROP FILTERS
+   Glassmorphism effect
+   ============================================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ============================================================
+   8. MODERN ASPECT RATIOS
+   Native aspect-ratio property
+   ============================================================ */
+
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-portrait { aspect-ratio: 3 / 4; }
+.aspect-golden { aspect-ratio: 1.618 / 1; }
+
+/* ============================================================
+   9. COLOR-SCHEME
+   Dark mode support
+   ============================================================ */
+
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1f2937;
+    --color-text: #f9fafb;
+    --color-border: #374151;
+  }
+  
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+  
+  .card {
+    background: #374151;
+    border: 1px solid var(--color-border);
+  }
+}
+
+/* ============================================================
+   10. LOGICAL PROPERTIES
+   Better for RTL languages
+   ============================================================ */
+
+.padding-inline {
+  padding-inline: 1rem; /* instead of padding-left/right */
+}
+
+.margin-block {
+  margin-block: 2rem; /* instead of margin-top/bottom */
+}
+
+.border-start {
+  border-inline-start: 2px solid #c41e3a; /* instead of border-left */
+}
+
+/* ============================================================
+   11. CUSTOM SCROLLBAR (Modern)
+   ============================================================ */
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #c41e3a #f1f5f9;
+}
+
+/* ============================================================
+   12. TEXT BALANCE
+   Better text wrapping
+   ============================================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* ============================================================
+   13. SUBGRID
+   Advanced grid layouts
+   ============================================================ */
+
+.grid-parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-child {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+/* ============================================================
+   14. MODERN ANIMATIONS
+   Using CSS Houdini and animation-timeline
+   ============================================================ */
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: slide-in 0.3s ease-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+/* ============================================================
+   15. FOCUS-VISIBLE
+   Better keyboard navigation
+   ============================================================ */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #c41e3a;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}

@@ -1,0 +1,72 @@
+{
+  "name": "DeltaDev Link - The Western IT Guy's Sausage",
+  "short_name": "Sunday Bite",
+  "description": "Lạp xưởng gạo lứt sạch, an toàn - Healthy brown rice sausages made fresh daily",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2F855A",
+  "orientation": "portrait-primary",
+  "categories": ["food", "shopping", "lifestyle"],
+  "lang": "vi-VN",
+  "dir": "ltr",
+  "categories": ["food", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "/src/assets/images/Product2.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/src/assets/images/Product2.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/src/assets/images/Product.1jpg.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Sản phẩm lạp xưởng gạo lứt"
+    },
+    {
+      "src": "/src/assets/images/Product3.jpg",
+      "sizes": "750x1334",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Menu sản phẩm"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Đặt hàng ngay",
+      "short_name": "Order",
+      "description": "Nhanh chóng đặt hàng qua Zalo",
+      "url": "/index.html#contact",
+      "icons": [
+        {
+          "src": "/src/assets/images/Product2.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Xem sản phẩm",
+      "short_name": "Products",
+      "description": "Khám phá các sản phẩm của chúng tôi",
+      "url": "/index.html#products",
+      "icons": [
+        {
+          "src": "/src/assets/images/Product3.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

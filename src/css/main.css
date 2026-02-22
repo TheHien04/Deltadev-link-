@@ -1,0 +1,241 @@
+/**
+ * Main CSS Entry Point
+ * Imports all modular CSS files
+ * Order matters: base → components → layouts → pages
+ */
+
+/* ========================================
+   BASE STYLES (ORDER MATTERS)
+   ======================================== */
+
+/* Variables must be imported first */
+@import './base/_variables.css';
+
+/* Reset and base styles */
+@import './base/_reset.css';
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+@import './components/_navigation.css';
+@import './components/_hero.css';
+@import './components/_buttons.css';
+@import './components/_cards.css';
+@import './components/_forms.css';
+
+/* 🚫 Super Features DISABLED - causing white screen
+@import './features/_super-features.css';
+*/
+
+/* ========================================
+   LAYOUT STYLES
+   ======================================== */
+
+@import './layouts/_footer.css';
+
+/* ========================================
+   PAGE-SPECIFIC STYLES
+   ======================================== */
+
+/* Products Section */
+.products {
+    padding: var(--space-20) 0;
+    background: var(--color-white);
+}
+
+/* About Section */
+.about {
+    background: var(--color-gray-50);
+}
+
+/* Quality Section */
+.quality {
+    background: var(--color-gray-50);
+}
+
+/* Contact Section */
+.contact {
+    background: var(--color-white);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Spacing Utilities */
+.py-20 { padding-top: var(--space-20); padding-bottom: var(--space-20); }
+.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-16 { margin-bottom: var(--space-16); }
+
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-8 { gap: var(--space-8); }
+.gap-12 { gap: var(--space-12); }
+
+/* Display Utilities */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.hidden { display: none; }
+.block { display: block; }
+
+/* Flexbox Utilities */
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* Position Utilities */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+
+/* Sizing Utilities */
+.w-full { width: 100%; }
+.h-auto { height: auto; }
+.min-h-screen { min-height: 100vh; }
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-4xl { font-size: var(--text-4xl); }
+
+.font-semibold { font-weight: var(--font-semibold); }
+.font-bold { font-weight: var(--font-bold); }
+
+.uppercase { text-transform: uppercase; }
+
+/* Color Utilities */
+.text-primary { color: var(--color-primary); }
+.text-white { color: var(--color-white); }
+.text-gray-600 { color: var(--color-gray-600); }
+.text-gray-700 { color: var(--color-gray-700); }
+.text-gray-800 { color: var(--color-gray-800); }
+
+.bg-white { background-color: var(--color-white); }
+.bg-gray-50 { background-color: var(--color-gray-50); }
+.bg-gray-100 { background-color: var(--color-gray-100); }
+.bg-primary { background-color: var(--color-primary); }
+
+/* Border Utilities */
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-3xl { border-radius: var(--radius-3xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+.border-2 { border-width: 2px; }
+.border-primary { border-color: var(--color-primary); }
+
+/* Shadow Utilities */
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+.shadow-2xl { box-shadow: var(--shadow-2xl); }
+
+/* Transform Utilities */
+.transform { transform: translate(0, 0); }
+
+/* Transition Utilities */
+.transition-all { transition: all var(--transition-base); }
+.transition-colors { transition: color var(--transition-fast), background-color var(--transition-fast); }
+.transition-transform { transition: transform var(--transition-base); }
+
+/* Overflow Utilities */
+.overflow-hidden { overflow: hidden; }
+.overflow-y-auto { overflow-y: auto; }
+
+/* Z-Index Utilities */
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-60 { z-index: 60; }
+
+/* Opacity Utilities */
+.opacity-0 { opacity: 0; }
+.opacity-90 { opacity: 0.9; }
+
+/* Visibility Utilities */
+.invisible { visibility: hidden; }
+.visible { visibility: visible; }
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+@media (min-width: 640px) {
+    .sm\:px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+    .sm\:block { display: block; }
+}
+
+@media (min-width: 768px) {
+    .md\:hidden { display: none; }
+    .md\:flex { display: flex; }
+    .md\:text-4xl { font-size: var(--text-4xl); }
+    .md\:text-5xl { font-size: var(--text-5xl); }
+}
+
+@media (min-width: 1024px) {
+    .lg\:px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+    .lg\:text-6xl { font-size: var(--text-6xl); }
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ========================================
+   ANIMATION UTILITIES
+   ======================================== */
+
+.animate-bounce-slow {
+    animation: bounce 2s infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ========================================
+   CUSTOM PAGE STYLES
+   ======================================== */
+
+/* Ensure smooth scrolling for anchor links */
+html {
+    scroll-padding-top: 5rem;
+}
+
+/* Loading state */
+body.loading {
+    overflow: hidden;
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .back-to-top,
+    .mobile-menu,
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+}
