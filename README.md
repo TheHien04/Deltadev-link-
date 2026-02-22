@@ -109,63 +109,66 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 #### 1️⃣ Landing Page - First Impression
 ![Home Page](public/images/Home.jpg)
-**Homepage** showcases our premium artisan sausages with:
-- 🎯 Hero section with compelling call-to-action
-- 🌟 Featured products carousel
-- 🏆 Trust badges: 20+ years excellence, certifications
-- 📱 Fully responsive design
-- 🎨 Beautiful GSAP animations on scroll
+**Homepage** showcases premium artisan sausages:
+- 🎯 Hero section with featured products carousel
+- 🏆 Trust badges: 20+ years excellence
+- 🎨 Beautiful GSAP animations
 
 #### 2️⃣ About Us - Our Story
 
-![About Us](public/images/About.jpg)
-**About Us Page**:
-- 📖 Our story - 20+ years in business
-- 🌾 Farm-to-table journey
-- 👨‍🍳 Meet our artisans
-- 🏭 Production facility tour
-- 🎯 Mission & values
-- 📍 Location map
-
-![Awards](public/images/20+%20Years%20of%20excellence.jpg)
-**20+ Years of Excellence**:
-- 📅 Established 2004
-- 🏆 Multiple industry awards
-- 👥 10,000+ satisfied customers
-- ⭐ 4.9/5 average rating
-- 🌍 Export to 5+ countries
-- 🥇 Best Artisan Sausage 2023
-- 🏅 Mekong Delta Food Excellence
-- 🎖️ Vietnamese Heritage Product
-- 👨‍🌾 Sustainable Agriculture Award
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/About.jpg" alt="About Us">
+      <b>Our Story</b>
+      <ul>
+        <li>📖 20+ years crafting premium sausages</li>
+        <li>🌾 Farm-to-table journey</li>
+        <li>👨‍🍳 Meet our artisans</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/20+%20Years%20of%20excellence.jpg" alt="Excellence">
+      <b>20+ Years of Excellence</b>
+      <ul>
+        <li>🏆 Multiple industry awards</li>
+        <li>👥 10,000+ satisfied customers</li>
+        <li>⭐ 4.9/5 average rating</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 #### 3️⃣ Product Discovery
-![Products Catalog](public/images/Products.jpg)
-**Products Page** - Browse our premium collection:
-- 🔍 **Live Search**: Instant product filtering
-- 🎤 **Voice Search**: Speak to search (NEW v3.2.0)
-- 🏷️ **Category Filters**: Organic, Traditional, Premium, Gift Sets
-- 💰 **Price Range**: Filter by budget
-- ⭐ **Ratings Filter**: Show top-rated products
-- 🔄 **Multiple Views**: Grid/List toggle
 
-![Product Grid](public/images/Products2.jpg)
-**Enhanced Product Grid**:
-- 📷 High-quality product images
-- 💳 Quick buy buttons
-- ❤️ Wishlist icon on each card (NEW)
-- 📊 Compare checkbox (NEW)
-- ⚡ Lazy loading for fast performance
-
-![Single Product](public/images/Product.jpg)
-**Product Detail Page**:
-- 🖼️ Image gallery with zoom
-- 📋 Complete product information
-- 🌾 Ingredients breakdown
-- 🏷️ Nutritional facts
-- ⭐ Customer reviews & ratings (NEW)
-- 💬 Q&A section
-- 🔗 Share to social media
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Products.jpg" alt="Products Catalog">
+      <b>Browse Products</b>
+      <ul>
+        <li>🔍 Live search & voice search (NEW)</li>
+        <li>🏷️ Category & price filters</li>
+      </ul>
+    </td>
+    <td width="33%">
+      <img src="public/images/Products2.jpg" alt="Product Grid">
+      <b>Enhanced Grid</b>
+      <ul>
+        <li>❤️ Wishlist & compare (NEW)</li>
+        <li>💳 Quick buy buttons</li>
+      </ul>
+    </td>
+    <td width="33%">
+      <img src="public/images/Product.jpg" alt="Product Detail">
+      <b>Product Details</b>
+      <ul>
+        <li>🖼️ Image gallery with zoom</li>
+        <li>⭐ Reviews & Q&A (NEW)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 #### 4️⃣ Quality Certifications & Standards
 
@@ -190,20 +193,16 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 </table>
 
 ![Quality Standards](public/images/Quality2.jpg)
-**Quality Assurance Process**:
-- 🔬 Laboratory testing
-- 🌡️ Temperature monitoring
-- 📦 Vacuum packaging
-- 🚚 Cold chain delivery
+**Quality Assurance**:
+- 🔬 Laboratory testing & temperature monitoring
+- 📦 Vacuum packaging & cold chain delivery
 - ♻️ Sustainable practices
 
 ![Excellence](public/images/Quality3.jpg)
 **Quality Excellence**:
 - 🏭 State-of-the-art production facility
-- 👨‍🔬 Expert quality control team
-- 📊 Regular third-party audits
-- ✅ Continuous improvement process
-- 🌱 Sustainable sourcing practices
+- 👨‍🔬 Expert quality control & third-party audits
+- 🌱 Sustainable sourcing
 
 #### 5️⃣ Order Now - Checkout & Payment
 
@@ -213,21 +212,15 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
       <img src="public/images/Order%20Now.jpg" alt="Order Form">
       <b>Order Form - Step 1</b>
       <ul>
-        <li>📝 Customer information</li>
-        <li>📍 Delivery address</li>
-        <li>⏰ Preferred delivery time</li>
-        <li>💬 Special requests</li>
-        <li>✅ Form validation</li>
+        <li>📝 Customer info & delivery address</li>
+        <li>⏰ Delivery time & special requests</li>
       </ul>
     </td>
     <td width="50%">
       <img src="public/images/Order%20Now%202.jpg" alt="Payment Methods">
       <b>Order Form - Step 2</b>
       <ul>
-        <li>📦 Order review</li>
-        <li>💳 Payment method selection</li>
-        <li>🧾 Invoice preview</li>
-        <li>📱 Mobile optimized</li>
+        <li>📦 Order review & payment selection</li>
         <li>🔒 Secure checkout</li>
       </ul>
     </td>
@@ -262,8 +255,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
       <b>💵 Cash on Delivery (COD)</b>
       <ul>
         <li>💸 Pay when you receive the product</li>
-        <li>✅ No advance payment required</li>
-        <li>🤝 Most trusted payment method in Vietnam</li>
         <li>📦 Inspect before paying</li>
         <li>🚚 Available for all delivery areas</li>
       </ul>
@@ -274,8 +265,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
       <ul>
         <li>🏛️ Direct transfer to company bank account</li>
         <li>📸 QR code for instant scanning</li>
-        <li>💳 Support all Vietnamese banks</li>
-        <li>📧 Auto-confirmation after transfer</li>
         <li>⚡ Fast processing (5-15 minutes)</li>
       </ul>
     </td>
@@ -293,8 +282,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>📲 #1 e-wallet in Vietnam</li>
         <li>⚡ Pay in 3 seconds with QR code</li>
         <li>🎁 Cashback & promotions</li>
-        <li>💰 No transaction fee</li>
-        <li>🔔 Instant push notifications</li>
       </ul>
     </td>
     <td width="50%">
@@ -304,9 +291,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>🏆 Leading Vietnamese payment gateway</li>
         <li>🏦 Connect to 40+ banks</li>
         <li>💳 ATM, Visa, Mastercard support</li>
-        <li>📱 VNPay QR code payment</li>
-        <li>🔒 Bank-level security</li>
-        <li>📊 Payment tracking dashboard</li>
       </ul>
     </td>
   </tr>
@@ -318,9 +302,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>💙 Zalo integrated payment</li>
         <li>📱 Pay directly from Zalo app</li>
         <li>🎁 Exclusive ZaloPay deals</li>
-        <li>💸 Split payment feature</li>
-        <li>⚡ One-tap checkout</li>
-        <li>🔔 In-app notifications</li>
       </ul>
     </td>
     <td width="50%">
@@ -334,12 +315,8 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 ##### 🎯 Payment Features Highlights
 
 - 🔒 **PCI DSS Compliant**: Bank-grade security for all transactions
-- 🌐 **6 Payment Methods**: Maximum flexibility for customers
-- 💱 **Auto Currency Format**: VND with proper thousand separators (180.000 VNĐ)
-- 🧾 **Instant Receipt**: Email & SMS confirmation immediately
-- 📊 **Real-time Tracking**: Monitor payment status in real-time
-- 🔐 **SSL Encrypted**: All payment data encrypted with 256-bit SSL
-- ♻️ **Auto Refund**: Automatic refund for cancelled orders
+- 🌐 **6 Payment Methods**: COD, Bank Transfer, MoMo, VNPay, ZaloPay
+- 🧾 **Instant Receipt**: Email & SMS confirmation
 - 📱 **Mobile Optimized**: Seamless payment on all devices
 
 #### 6️⃣ Interactive Features (NEW v3.2.0)
@@ -347,21 +324,14 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 ![Wishlist](public/images/Favorite.jpg)
 **Wishlist / Favorites**:
 - ❤️ Save up to 50 favorite products
-- 💾 Persistent across sessions
-- 🛒 Quick "Add All to Cart"
-- 📤 Export/Share wishlist
-- 📊 Track price changes
+- � Quick "Add All to Cart"
 - 🔔 Low stock alerts
 
 ![Shopping Cart](public/images/shopping%20cart.jpg)
 **Shopping Cart**:
-- 🛒 Real-time cart updates
-- ➕➖ Quantity adjustments
-- 💵 Live price calculation
-- 🎁 Promo code input
-- 📦 Shipping cost estimator
+- 🛒 Real-time cart updates & quantity adjustments
+- 💵 Live price calculation & promo codes
 - 💾 Persistent cart (localStorage)
-- 🔙 Continue shopping option
 
 #### 7️⃣ Authentication System
 
@@ -397,27 +367,18 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 💬 Real-time customer support
 - 🤖 Smart chatbot for FAQs
 - 👨‍💼 Connect to sales team
-- 📱 Mobile-friendly chat widget
-- ⏰ Business hours indicator
-- 📧 Email fallback when offline
 
 ![Ask Questions](public/images/Ask%20Question.jpg)
 **Q&A System**:
 - ❓ Product-specific questions
 - 👥 Community answers
 - ✅ Verified expert responses
-- 🔔 Notification when answered
-- 📊 Most helpful answers highlighted
-- 🔍 Searchable Q&A database
 
 ![Newsletter](public/images/Newsletter.jpg)
 **Newsletter Subscription**:
 - 📧 Email marketing integration
 - 🎁 Welcome discount for subscribers
-- 📅 Weekly product updates
-- 🏷️ Exclusive deals & promotions
-- 📊 Subscriber analytics
-- ✅ GDPR compliant opt-in
+- 📅 Weekly product updates & exclusive deals
 
 #### 9️⃣ Customer Testimonials & Loyalty
 
@@ -426,18 +387,12 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - ⭐ 5-star rating system (NEW v3.2.0)
 - 📝 Detailed written reviews
 - ✔️ Verified purchase badges
-- 👍 Helpful voting system
-- 📊 Rating distribution chart
-- 🏆 Featured customer stories
 
 ![Loyalty Program](public/images/Loyalty.jpg)
 **Loyalty Rewards Program**:
 - 🎁 Points on every purchase
-- 💰 Cashback rewards
-- 🎂 Birthday bonuses
-- 👑 VIP tier benefits
+- 💰 Cashback rewards & VIP benefits
 - 🔄 Referral rewards
-- 📊 Points tracking dashboard
 
 ---
 
@@ -447,104 +402,83 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 ![Admin Overview](public/images/Overview-Admin%20Panel.jpg)
 **Admin Dashboard - Main View**:
-- 📊 Real-time sales metrics
-- 📈 Revenue charts (daily/weekly/monthly)
-- 👥 Active users counter
-- 📦 Pending orders alerts
+- 📊 Real-time sales metrics & revenue charts
+- 👥 Active users & pending orders alerts
 - ⚡ Quick actions panel
-- 🔔 System notifications
 
 ![Admin Panel 2](public/images/Overview-Admin%20Panel%202.jpg)
 **Advanced Analytics**:
-- 💹 Sales trends & forecasting
-- 📊 Product performance ranking
+- 📈 Sales trends & product performance ranking
 - 🗺️ Geographic sales distribution
-- 👥 Customer demographics
-- 📅 Seasonal patterns analysis
-- 📥 Export reports (CSV/PDF)
+- 📅 Seasonal patterns & export reports
 
 #### 2️⃣ Product Management
 
-![Product Management](public/images/Products.jpg)
-**Product Listing**:
-- 📝 All products overview
-- 🔍 Search & filter products
-- 🏷️ Bulk actions (edit/delete)
-- 📊 Stock status indicators
-- 💰 Price management
-- 🎨 Category organization
-
-![Add New Product](public/images/Add%20new%20product.jpg)
-**Add New Product**:
-- 📸 Multiple image upload
-- 📝 Rich text description editor
-- 🏷️ Category & tags
-- 💵 Pricing & discounts
-- 📦 Inventory tracking
-- 🌾 Ingredients & allergens
-- ⚖️ Weight & portions
-- ✅ SEO optimization fields
-
-![Edit Product](public/images/Edit%20product.jpg)
-**Edit Product**:
-- ✏️ Update product details
-- 📊 View sales history
-- ⭐ Monitor reviews
-- 📈 Performance metrics
-- 🔄 Version history
-- 🗑️ Archive/restore options
-
-![Export Products](public/images/Export%20product.jpg)
-**Export Product Data**:
-- 📥 CSV/Excel export
-- 📊 Inventory reports
-- 💰 Pricing sheets
-- 📈 Sales performance data
-- 🏷️ Custom column selection
-- 📅 Date range filtering
+<table>
+  <tr>
+    <td width="25%">
+      <img src="public/images/Products.jpg" alt="Product Listing">
+      <b>Product Listing</b>
+      <ul>
+        <li>📝 All products overview</li>
+        <li>🔍 Search & filter</li>
+        <li>🏷️ Bulk actions</li>
+      </ul>
+    </td>
+    <td width="25%">
+      <img src="public/images/Add%20new%20product.jpg" alt="Add Product">
+      <b>Add New Product</b>
+      <ul>
+        <li>📸 Multiple image upload</li>
+        <li>📝 Rich text editor</li>
+        <li>💵 Pricing & inventory</li>
+      </ul>
+    </td>
+    <td width="25%">
+      <img src="public/images/Edit%20product.jpg" alt="Edit Product">
+      <b>Edit Product</b>
+      <ul>
+        <li>✏️ Update details</li>
+        <li>📊 Sales history</li>
+        <li>⭐ Monitor reviews</li>
+      </ul>
+    </td>
+    <td width="25%">
+      <img src="public/images/Export%20product.jpg" alt="Export">
+      <b>Export Data</b>
+      <ul>
+        <li>📥 CSV/Excel export</li>
+        <li>📊 Inventory reports</li>
+        <li>🏷️ Custom columns</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 #### 3️⃣ Order Management
 
 ![Orders](public/images/Orders.jpg)
 **Order Management**:
-- 📦 All orders dashboard
-- 🔔 New order notifications
-- 📊 Order status tracking
-- 💳 Payment status
+- 📦 All orders dashboard with real-time notifications
+- 📊 Order status & payment tracking
 - 🚚 Shipping management
-- 📱 Customer contact info
-- 💰 Revenue summary
 - 🔍 Advanced search & filters
 
-**Order Status Workflow**:
-1. 🆕 **Pending** - New order received
-2. ✅ **Confirmed** - Order verified
-3. 📦 **Processing** - Being prepared
-4. 🚚 **Shipped** - Out for delivery
-5. ✔️ **Delivered** - Successfully delivered
-6. ❌ **Cancelled** - Order cancelled
+**Order Status Workflow**: 🆕 Pending → ✅ Confirmed → 📦 Processing → 🚚 Shipped → ✔️ Delivered
 
 #### 4️⃣ Customer Management
 
 ![Users Management](public/images/Users.jpg)
 **Customer Database**:
 - 👥 All registered users
-- 📧 Contact information
-- 📊 Purchase history
-- 💰 Lifetime value (LTV)
-- 🎁 Loyalty points
-- 🔒 Account status
-- 📝 Customer notes
-- 🚫 Ban/suspend options
+- � Purchase history & LTV
+- 🎁 Loyalty points tracking
 
 ![Export Users](public/images/export%20users.jpg)
 **Export Customer Data**:
 - 📥 Customer list export
 - 📊 Segmentation by criteria
-- 💌 Email marketing lists
-- 📈 Customer analytics
-- 🎯 Target audience selection
-- 🔐 GDPR compliant exports
+- � GDPR compliant
 
 #### 5️⃣ Email Marketing
 
@@ -571,34 +505,33 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 ![Newsletter List](public/images/Export%20lits_Newsletter.jpg)
 **Newsletter Management**:
 - 📋 Subscriber list
-- ➕ Manual add/remove
 - 📥 Import from CSV
 - 📊 Growth analytics
-- 🎁 Subscriber rewards
-- ✅ Double opt-in verification
-- 🔔 Subscription sources tracking
 
 #### 6️⃣ Communication Hub
 
-![Notifications](public/images/Notifications.jpg)
-**Push Notification System**:
-- 🔔 Send push notifications
-- 📱 PWA notification support
-- 🎯 User segmentation
-- ⏰ Schedule notifications
-- 📊 Click-through tracking
-- 🔕 Respect user preferences
-- 📈 Engagement analytics
-
-![Q&A Management](public/images/Ask%20Question.jpg)
-**Question & Answer Management**:
-- ❓ Unanswered questions queue
-- ✅ Publish/moderate responses
-- 🏷️ Categorize by product
-- ⭐ Mark helpful answers
-- 📊 FAQ analytics
-- 🔍 Search questions
-- 🤖 Auto-response suggestions
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Notifications.jpg" alt="Notifications">
+      <b>Push Notification System</b>
+      <ul>
+        <li>🔔 Send push notifications</li>
+        <li>📱 PWA notification support</li>
+        <li>🎯 User segmentation</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/Ask%20Question.jpg" alt="Q&A">
+      <b>Q&A Management</b>
+      <ul>
+        <li>❓ Unanswered questions queue</li>
+        <li>✅ Publish/moderate responses</li>
+        <li>🏷️ Categorize by product</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
