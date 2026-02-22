@@ -409,7 +409,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 
 ### 👨‍💼 Admin Panel (Back-end)
 
-#### 1️⃣ Dashboard & Analytics
+#### 1️⃣ Overview
 
 ![Admin Overview](public/images/Overview-Admin%20Panel.jpg)
 **Admin Dashboard - Main View**:
@@ -423,7 +423,86 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 - 🗺️ Geographic sales distribution
 - 📅 Seasonal patterns & export reports
 
-#### 2️⃣ Product Management
+#### 2️⃣ Orders
+
+![Orders](public/images/Orders.jpg)
+**Order Management**:
+- 📦 All orders dashboard with real-time notifications
+- 📊 Order status & payment tracking
+- 🚚 Shipping management
+- 🔍 Advanced search & filters
+
+**Order Status Workflow**: 🆕 Pending → ✅ Confirmed → 📦 Processing → 🚚 Shipped → ✔️ Delivered
+
+#### 3️⃣ Users
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Users.jpg" alt="Users Management">
+      <b>Customer Database</b>
+      <ul>
+        <li>👥 All registered users</li>
+        <li>📊 Purchase history & LTV</li>
+        <li>🎁 Loyalty points tracking</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <img src="public/images/export%20users.jpg" alt="Export Users">
+      <b>Export Customer Data</b>
+      <ul>
+        <li>📥 Customer list export</li>
+        <li>📊 Segmentation by criteria</li>
+        <li>🔐 GDPR compliant</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+#### 4️⃣ Loyalty
+
+![Loyalty Program](public/images/Loyalty.jpg)
+**Loyalty Program Management**:
+- 🎁 Points system configuration
+- 💰 Cashback & rewards settings
+- 👑 VIP tier management
+- 📊 Member analytics & engagement
+
+#### 5️⃣ Newsletter
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Send%20email%202.jpg" alt="Send Email">
+      <b>Email Campaigns</b>
+      <ul>
+        <li>📧 Rich HTML editor & templates</li>
+        <li>👥 Recipient selection</li>
+        <li>📅 Schedule sending</li>
+      </ul>
+    </td>
+    <td width="33%">
+      <img src="public/images/Send%20bulk%20email.jpg" alt="Bulk Email">
+      <b>Bulk Email System</b>
+      <ul>
+        <li>📨 Mass email campaigns</li>
+        <li>🎯 Segmented lists</li>
+        <li>📊 Delivery analytics</li>
+      </ul>
+    </td>
+    <td width="33%">
+      <img src="public/images/Export%20lits_Newsletter.jpg" alt="Newsletter">
+      <b>Newsletter Management</b>
+      <ul>
+        <li>📋 Subscriber list</li>
+        <li>📥 Import from CSV</li>
+        <li>📊 Growth analytics</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+#### 6️⃣ Products
 
 <table>
   <tr>
@@ -457,214 +536,7 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
   </tr>
 </table>
 
-#### 3️⃣ Order Management
-
-![Orders](public/images/Orders.jpg)
-**Order Management**:
-- 📦 All orders dashboard with real-time notifications
-- 📊 Order status & payment tracking
-- 🚚 Shipping management
-- 🔍 Advanced search & filters
-
-**Order Status Workflow**: 🆕 Pending → ✅ Confirmed → 📦 Processing → 🚚 Shipped → ✔️ Delivered
-
-#### 4️⃣ Customer Management
-
-![Users Management](public/images/Users.jpg)
-**Customer Database**:
-- 👥 All registered users
-- � Purchase history & LTV
-- 🎁 Loyalty points tracking
-
-![Export Users](public/images/export%20users.jpg)
-**Export Customer Data**:
-- 📥 Customer list export
-- 📊 Segmentation by criteria
-- � GDPR compliant
-
-#### 5️⃣ Email Marketing
-
-![Send Email](public/images/Send%20email%202.jpg)
-**Email Campaign Creator**:
-- 📧 Rich HTML email editor
-- 🎨 Pre-designed templates
-- 👥 Recipient selection
-- 📅 Schedule sending
-- 🔗 Link tracking
-- 📊 Open rate analytics
-- ✅ A/B testing support
-
-![Bulk Email](public/images/Send%20bulk%20email.jpg)
-**Bulk Email System**:
-- 📨 Mass email campaigns
-- 🎯 Segmented lists
-- 📊 Real-time sending progress
-- 🔄 Queue management
-- 📈 Delivery analytics
-- 🚫 Unsubscribe handling
-- 📧 Bounce management
-
-![Newsletter List](public/images/Export%20lits_Newsletter.jpg)
-**Newsletter Management**:
-- 📋 Subscriber list
-- 📥 Import from CSV
-- 📊 Growth analytics
-
-#### 6️⃣ Communication Hub
-
-<table>
-  <tr>
-    <td width="50%">
-      <img src="public/images/Notifications.jpg" alt="Notifications">
-      <b>Push Notification System</b>
-      <ul>
-        <li>🔔 Send push notifications</li>
-        <li>📱 PWA notification support</li>
-        <li>🎯 User segmentation</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <img src="public/images/Ask%20Question.jpg" alt="Q&A">
-      <b>Q&A Management</b>
-      <ul>
-        <li>❓ Unanswered questions queue</li>
-        <li>✅ Publish/moderate responses</li>
-        <li>🏷️ Categorize by product</li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
 ---
-
-## 🎯 Key Feature Highlights
-
-### 💎 Premium Features Showcase
-
-1. **🎤 Voice Search** (NEW v3.2.0)
-   - Hands-free product discovery
-   - Vietnamese & English support
-   - Auto-correction for accuracy
-   - 85%+ browser compatibility
-
-2. **🔍 Smart Fuzzy Search** (NEW v3.2.0)
-   - Typo-tolerant search
-   - Levenshtein distance algorithm
-   - Real-time suggestions
-   - Match percentage display
-
-3. **❤️ Wishlist System** (NEW v3.2.0)
-   - Save up to 50 products
-   - Persistent storage
-   - Export/Import capability
-   - Price drop alerts
-
-4. **📊 Product Comparison** (NEW v3.2.0)
-   - Compare up to 4 products
-   - 10+ attributes side-by-side
-   - Web Share integration
-   - Export to PDF (coming soon)
-
-5. **⭐ Reviews & Ratings** (NEW v3.2.0)
-   - Verified purchase badges
-   - Helpful voting system
-   - Rating distribution charts
-   - Sort & filter options
-
-6. **💳 Multi-Payment Gateway**
-   - 6+ payment methods
-   - MoMo, VNPay, ZaloPay
-   - Bank transfer with QR
-   - Traditional COD
-
-7. **🔒 Security & Compliance**
-   - GDPR compliant
-   - Cookie consent banner
-   - Privacy Policy & Terms
-   - Secure payment processing
-
-8. **📱 Progressive Web App**
-   - Install on any device
-   - Offline support
-   - Push notifications
-   - Fast loading (95+ Lighthouse)
-
-9. **👨‍💼 Powerful Admin Panel**
-   - Real-time analytics
-   - Product management
-   - Order tracking
-   - Email marketing
-   - Customer insights
-
-10. **🌍 Bilingual Interface**
-    - Vietnamese/English
-    - Instant switching
-    - Persistent preference
-    - Localized content
-
----
-
-## 📁 Project Structure
-
-```
-/
-├── index.html                  # Main HTML entry point
-├── public/
-│   ├── manifest.json           # PWA manifest
-│   └── service-worker.js       # Service Worker for offline support
-├── src/
-│   ├── assets/
-│   │   └── images/             # Product images, certificates
-│   ├── css/
-│   │   ├── base/
-│   │   │   ├── _variables.css  # Design tokens (colors, spacing)
-│   │   │   └── _reset.css      # CSS reset
-│   │   ├── components/
-│   │   │   ├── _navigation.css # Header, mobile menu
-│   │   │   ├── _buttons.css    # Button variants
-│   │   │   ├── _hero.css       # Hero section
-│   │   │   ├── _cards.css      # Product cards
-│   │   │   └── _forms.css      # Form styling
-│   │   ├── utilities/
-│   │   │   └── _modern.css     # 🆕 Modern CSS (2026 features)
-│   │   ├── layouts/
-│   │   │   └── _footer.css     # Footer layout
-│   │   └── main.css            # Main CSS entry point
-│   └── js/
-│       ├── config/
-│       │   └── app.config.js   # App configuration
-│       ├── state/
-│       │   └── AppState.js     # State management
-│       ├── managers/
-│       │   ├── LanguageManager.js     # i18n
-│       │   ├── NavigationManager.js   # Navigation logic
-│       │   ├── FormHandler.js         # Form validation
-│       │   └── AnimationManager.js    # Animations
-│       ├── features/              # 🆕 Super Features (v3.2.0)
-│       │   ├── VoiceSearch.js         # Voice search with Web Speech API
-│       │   ├── AdvancedSearch.js      # Fuzzy search + filters
-│       │   ├── Wishlist.js            # Save favorites
-│       │   ├── ProductComparison.js   # Compare products
-│       │   └── ProductReviews.js      # Reviews & ratings
-│       ├── utils/
-│       │   └── ImageLoader.js  # Lazy loading
-│       ├── super-features.js   # 🆕 Feature integration manager
-│       ├── app.js              # Main app controller
-│       └── main.js             # Entry point
-├── docs/
-│   ├── ARCHITECTURE.md         # System architecture
-│   ├── DEPLOYMENT.md           # Deployment guide
-│   ├── DEVELOPMENT.md          # Development guide
-│   └── SUPER-FEATURES.md       # 🆕 Super features documentation
-├── config/
-│   └── .env.example            # Environment variables template
-├── CHANGELOG-v3.2.md           # 🆕 Version 3.2.0 release notes
-├── .gitignore
-├── .editorconfig
-└── package.json
-```
-
-## 🛠️ Technology Stack
 
 ### Core Technologies
 - **HTML5**: Semantic markup, accessibility features
