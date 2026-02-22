@@ -948,48 +948,6 @@ const message = `Đặt hàng: ${productName} - ${quantity} kg - ${total} VNĐ`;
 const zaloUrl = `zalo://qr/p/${PHONE}/null?givenText=${encodeURIComponent(message)}`;
 ```
 
-## 🌐 Browser Support
-
-### Core Features
-| Browser | Version | Support |
-|---------|---------|---------|
-| Chrome  | Last 2  | ✅ 100% |
-| Firefox | Last 2  | ✅ 100% |
-| Safari  | Last 2  | ✅ 100% |
-| Edge    | Last 2  | ✅ 100% |
-
-### Super Features
-| Feature | Chrome | Edge | Safari | Firefox |
-|---------|--------|------|--------|---------|
-| Voice Search | ✅ 33+ | ✅ 79+ | ✅ 14.1+ | ⚠️ Fallback |
-| Advanced Search | ✅ All | ✅ All | ✅ All | ✅ All |
-| Wishlist | ✅ All | ✅ All | ✅ All | ✅ All |
-| Comparison | ✅ All | ✅ All | ✅ All | ✅ All |
-| Reviews | ✅ All | ✅ All | ✅ All | ✅ All |
-| Container Queries | ✅ 105+ | ✅ 105+ | ✅ 16+ | ✅ 110+ |
-| :has() Selector | ✅ 105+ | ✅ 105+ | ✅ 15.4+ | ✅ 103+ |
-| View Transitions | ✅ 111+ | ✅ 111+ | ⚠️ Fallback | ⚠️ Fallback |
-| Web Share | ✅ 89+ | ✅ 93+ | ✅ 12.1+ | ⚠️ Fallback |
-
-**Overall Coverage**: 85-100% (with progressive enhancement)
-
-## 📱 PWA Installation
-
-### Android
-1. Open website in Chrome
-2. Tap "Add to Home Screen"
-3. Confirm installation
-
-### iOS
-1. Open website in Safari
-2. Tap Share button
-3. Select "Add to Home Screen"
-
-### Desktop
-1. Open website in Chrome/Edge
-2. Click install icon in address bar
-3. Confirm installation
-
 ## 🔧 Configuration
 
 ### Contact Information
