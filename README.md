@@ -442,52 +442,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 ---
 
 ### 👨‍💼 Admin Panel (Back-end)
-      <b>✅ Food Safety</b>
-      <p>HACCP & GMP certified facility</p>
-    </td>
-    <td width="33%">
-      <img src="public/images/Business%20License.jpg" alt="Business License">
-      <b>📜 Business License</b>
-      <p>Registered with Vietnam Ministry of Industry</p>
-    </td>
-  </tr>
-</table>
-
-![Quality Standards](public/images/Quality2.jpg)
-**Quality Assurance Process**:
-- 🔬 Laboratory testing
-- 🌡️ Temperature monitoring
-- 📦 Vacuum packaging
-- 🚚 Cold chain delivery
-- ♻️ Sustainable practices
-
-![Excellence](public/images/Quality3.jpg)
-**20+ Years of Excellence**:
-- 📅 Established 2004
-- 🏆 Multiple industry awards
-- 👥 10,000+ satisfied customers
-- ⭐ 4.9/5 average rating
-- 🌍 Export to 5+ countries
-
-![Awards](public/images/20+%20Years%20of%20excellence.jpg)
-**Awards & Recognition**:
-- 🥇 Best Artisan Sausage 2023
-- 🏅 Mekong Delta Food Excellence
-- 🎖️ Vietnamese Heritage Product
-- 👨‍🌾 Sustainable Agriculture Award
-
-![Loyalty Program](public/images/Loyalty.jpg)
-**Loyalty Rewards Program**:
-- 🎁 Points on every purchase
-- 💰 Cashback rewards
-- 🎂 Birthday bonuses
-- 👑 VIP tier benefits
-- 🔄 Referral rewards
-- 📊 Points tracking dashboard
-
----
-
-### 👨‍💼 Admin Panel (Back-end)
 
 #### 1️⃣ Dashboard & Analytics
 
