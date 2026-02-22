@@ -234,6 +234,25 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
   </tr>
 </table>
 
+##### � Payment Gateway Overview
+
+![Payment System](public/images/Bank.jpg)
+**Integrated Payment System**:
+- 🏦 **Multi-Gateway Integration**: Connect with major Vietnamese payment providers
+- 🔐 **Bank-Level Security**: Enterprise-grade encryption & PCI DSS compliance
+- 💳 **Card Support**: Visa, Mastercard, JCB, and all Vietnamese bank cards
+- 🌐 **24/7 Availability**: Process payments anytime, anywhere
+- ⚡ **Instant Confirmation**: Real-time payment verification
+- 📊 **Smart Routing**: Automatically select best payment gateway
+- 🔒 **3D Secure**: Additional authentication layer for card payments
+- 💱 **Multi-Currency**: VND with proper formatting (180.000 VNĐ)
+- 📱 **Mobile Optimized**: Seamless payment on all devices
+- 🧾 **Auto Reconciliation**: Automatic payment matching & reporting
+
+**Our integrated payment system ensures maximum security, reliability, and convenience for every transaction.**
+
+---
+
 ##### 💰 Traditional Payment Methods
 
 <table>
@@ -268,18 +287,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
 <table>
   <tr>
     <td width="50%">
-      <img src="public/images/Bank.jpg" alt="Internet Banking">
-      <b>💳 Internet Banking (ATM Online)</b>
-      <ul>
-        <li>🔐 Secure online banking payment</li>
-        <li>🏦 Connect directly to your bank</li>
-        <li>💳 Visa, Mastercard, JCB accepted</li>
-        <li>🔒 3D Secure authentication</li>
-        <li>⚡ Instant payment confirmation</li>
-        <li>🌐 24/7 available</li>
-      </ul>
-    </td>
-    <td width="50%">
       <img src="public/images/Momo.jpg" alt="MoMo E-wallet">
       <b>📱 MoMo E-wallet</b>
       <ul>
@@ -290,8 +297,6 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>🔔 Instant push notifications</li>
       </ul>
     </td>
-  </tr>
-  <tr>
     <td width="50%">
       <img src="public/images/VNPay.jpg" alt="VNPay">
       <b>💳 VNPay Gateway</b>
@@ -304,6 +309,8 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>📊 Payment tracking dashboard</li>
       </ul>
     </td>
+  </tr>
+  <tr>
     <td width="50%">
       <img src="public/images/Zalopay.jpg" alt="ZaloPay">
       <b>💰 ZaloPay</b>
@@ -315,6 +322,11 @@ Modern, premium e-commerce website for **DeltaDev Link** - Artisan sausages from
         <li>⚡ One-tap checkout</li>
         <li>🔔 In-app notifications</li>
       </ul>
+    </td>
+    <td width="50%">
+      <div style="padding: 20px; text-align: center; background: #f8f9fa; border-radius: 8px;">
+        <p style="margin: 0; color: #6c757d; font-size: 14px;">✨ More payment methods coming soon!</p>
+      </div>
     </td>
   </tr>
 </table>
