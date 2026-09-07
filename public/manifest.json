@@ -1,7 +1,7 @@
 {
   "name": "DeltaDev Link",
   "short_name": "DeltaDev",
-  "description": "Artisan sausages from Cai Be, Tien Giang — traditional Mekong Delta craft with modern precision.",
+  "description": "Artisan sausages from the Mekong Delta — traditional craft with modern process discipline.",
   "start_url": "/index.html",
   "scope": "/",
   "display": "standalone",

@@ -35,14 +35,14 @@ const sampleProducts = [
     reviews: 124,
     inStock: true,
     image: '/src/assets/images/Product1.jpg',
-    description: 'Lạp xưởng gạo lứt organic cao cấp từ Cái Bè, Tiền Giang...',
+    description: 'Lạp xưởng gạo lứt organic cao cấp từ Đồng bằng sông Cửu Long...',
     ingredients: ['Gạo lứt hữu cơ', 'Thịt heo sạch', 'Gia vị tự nhiên']
   },
   {
     id: 'lap-xuong-truyen-thong-002',
     name: 'Heritage Classic Link',
     nameEn: 'Heritage Classic Link',
-    nameVi: 'Lạp Xưởng Truyền Thống Cái Bè',
+    nameVi: 'Lạp Xưởng Truyền Thống Mekong',
     price: 120000,
     weight: '1kg',
     flavor: 'Ngọt nhẹ',

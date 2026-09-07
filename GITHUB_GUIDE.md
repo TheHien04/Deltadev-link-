@@ -190,7 +190,7 @@ git push -u origin main
 3. **Business Sensitive** - Có thể public:
    - ✅ Business name: DeltaDev Link (OK)
    - ✅ Phone: 0373948649 (OK - đây là contact info công khai)
-   - ✅ Address: Cai Be, Tien Giang (OK - địa chỉ business)
+   - ✅ Address: Mekong Delta, Vietnam (OK - public origin label)
    - ✅ Email: support@deltadevlink.com (OK)
 
 ---

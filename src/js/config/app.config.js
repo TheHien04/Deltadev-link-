@@ -9,7 +9,7 @@ export const APP_CONFIG = {
     app: {
         name: 'DeltaDev Link',
         version: '3.2.1',
-        description: 'Premium Vietnamese artisan sausage from Cai Be, Tien Giang',
+        description: 'Premium Vietnamese artisan sausage from the Mekong Delta',
         author: 'DeltaDev Link Team',
         buildDate: '2026-09-07'
     },
@@ -21,8 +21,8 @@ export const APP_CONFIG = {
         phone: '+84373948649',
         phoneDisplay: '0373 948 649',
         email: 'thesundaybite@gmail.com',
-        address: 'Số 364, tổ 8, ấp Hậu Quới, xã Hậu Mỹ Bắc B, huyện Cái Bè, tỉnh Tiền Giang',
-        addressShort: 'Hậu Mỹ Bắc B, Cái Bè, Tiền Giang',
+        address: 'Mekong Delta, Vietnam',
+        addressShort: 'Mekong Delta, Vietnam',
         zaloNumber: '84373948649', // Without + for Zalo deep link
         businessHours: {
             weekday: '8AM - 5PM',

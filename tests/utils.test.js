@@ -29,7 +29,7 @@ test('validates email, name, and address', () => {
   assert.equal(isValidEmail('not-an-email'), false);
   assert.equal(isValidName('Hien'), true);
   assert.equal(isValidName('A'), false);
-  assert.equal(isValidAddress('Hau My Bac B, Cai Be, Tien Giang'), true);
+  assert.equal(isValidAddress('Hamlet 8, Mekong Delta, Vietnam'), true);
   assert.equal(isValidAddress('HCM'), false);
 });
 

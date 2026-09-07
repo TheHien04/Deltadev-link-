@@ -1,6 +1,6 @@
 # DeltaDev Link
 
-A bilingual, progressively enhanced storefront for an artisan sausage producer in Cai Be, Tien Giang, Vietnam.
+A bilingual, progressively enhanced storefront for an artisan sausage producer in the Mekong Delta, Vietnam.
 
 The application is a static front end. Product discovery, cart state, and account UI run in the browser. Order completion is handed off to Zalo. This repository does not include a payment processor, inventory service, or server-side identity provider.
 
@@ -8,7 +8,7 @@ The application is a static front end. Product discovery, cart state, and accoun
 | --- | --- |
 | Document status | Current |
 | Application version | 3.2.1 |
-| Document type | Technical architecture and operating model |
+| Document type | Technical note (architecture, MVP, operating model) |
 | Classification | Public |
 | License | MIT |
 
@@ -22,9 +22,9 @@ The application is a static front end. Product discovery, cart state, and accoun
 
 ## 1. Purpose
 
-DeltaDev Link is a client-side commerce surface for a small food producer whose sales channel is messaging rather than card-not-present checkout. The system therefore optimizes for (i) bilingual product communication, (ii) validated lead capture, and (iii) a privacy-preserving analytics default — not for PCI-DSS payment flows.
+This note describes a client-side commerce surface for a small food producer in the **Mekong Delta**. The producer’s sales channel is messaging rather than card-not-present checkout. Accordingly, the system is specified around three outcomes: (i) bilingual product communication, (ii) validated lead capture, and (iii) a privacy-preserving measurement default. PCI-DSS payment capture is explicitly out of scope.
 
-This document records **product surfaces** (interface captures), the **main architecture**, the **MVP boundary**, the **technology stack**, **business rules**, and **operating flows**. Claims that cannot be verified in code are marked as operator policy.
+We document **product surfaces** (interface captures), a **layered main architecture**, the **MVP boundary**, the **technology stack**, **numbered business rules**, and **operating flows** as implemented in this repository. Statements that cannot be verified in code are labelled operator policy.
 
 ---
 
@@ -46,7 +46,7 @@ Hero, brand narrative (“Where Code Meets Craft”), and primary call to order.
   <tr>
     <td width="50%">
       <img src="public/images/About.jpg" alt="About — producer story">
-      <p><strong>Origin.</strong> Cai Be, Tien Giang. Family recipe framed as 10–20 years of practice.</p>
+      <p><strong>Origin.</strong> Producer origin is stated as the Mekong Delta, Vietnam. Heritage copy cites a multi-decade family recipe (operator claim, not independently audited here).</p>
     </td>
     <td width="50%">
       <img src="public/images/20+%20Years%20of%20excellence.jpg" alt="Excellence narrative">
@@ -278,18 +278,18 @@ Stated status path: Pending → Confirmed → Processing → Shipped → Deliver
 ```mermaid
 flowchart LR
   subgraph Customers
-    C[Visitor / buyer]
+    C[Visitor or buyer]
   end
 
-  subgraph This_repository["This repository (static origin)"]
+  subgraph This_repository["This repository - static origin"]
     S[Storefront]
     A[Admin prototype]
   end
 
   subgraph External
     Z[Zalo]
-    W[WhatsApp / Facebook]
-    CDN[CSS/JS CDNs]
+    W[WhatsApp and Facebook]
+    CDN[CSS and JS CDNs]
     M[Analytics vendors]
   end
 
@@ -300,19 +300,19 @@ flowchart LR
   C --> S
   C -.-> A
   S --> CDN
-  S -->|consent + real IDs only| M
+  S -->|consent and real IDs only| M
   S -->|validated order message| Z
   S --> W
   Z --> O
 ```
 
-The producer confirms price, stock, delivery slot, and payment **outside** this application. The website is a capture and presentation layer.
+The producer confirms price, stock, delivery slot, and payment **outside** this application. The website is treated as a capture and presentation layer for a Mekong Delta food SME, not as an order-management system.
 
 ---
 
 ## 4. MVP definition
 
-The shipped system is an **MVP 1.0** in the GovTech sense: the smallest set of capabilities that lets a real customer discover a product and place a verified enquiry, with privacy defaults that would pass a basic PDPA / GDPR-style review.
+We specify the shipped system as **MVP 1.0**: the smallest set of capabilities that lets a buyer discover a product and place a verified enquiry, with measurement defaults consistent with a basic PDPA / GDPR-style consent review.
 
 ### 4.1 Must have (delivered)
 
@@ -352,35 +352,35 @@ Wishlist, comparison (max 3 SKUs), reviews UI, loyalty UI, newsletter capture, l
 
 ## 5. Main architecture
 
-The architecture is a **layered browser application** with a single composition root. There is no application server. Persistence is the Web Storage API. Integration is outbound HTTPS to messaging and, optionally, measurement vendors.
+The architecture is a **layered browser application** with a single composition root (cf. a simplified C4 container view). There is no application server. Persistence is the Web Storage API. Integration is outbound HTTPS to messaging apps and, optionally, measurement vendors.
 
 ### 5.1 Logical layers
 
 ```mermaid
 flowchart TB
   subgraph Presentation["Presentation"]
-    HTML["index.html / admin.html<br/>landmarks, JSON-LD, forms"]
-    CSS["Design tokens + Tailwind 3.4<br/>src/css/*"]
+    HTML["index.html and admin.html - landmarks JSON-LD forms"]
+    CSS["Design tokens and Tailwind 3.4"]
   end
 
-  subgraph Application["Application / orchestration"]
-    MAIN["main.js — boot"]
-    APP["app.js — composition root"]
-    ST["AppState — observer store"]
+  subgraph Application["Application orchestration"]
+    MAIN["main.js boot"]
+    APP["app.js composition root"]
+    ST["AppState observer store"]
     MGR["Feature managers"]
   end
 
   subgraph Domain["Domain"]
-    VAL["validation.js — VN phone, email, name"]
-    STR["string.js — Levenshtein, vi-fold"]
-    CFG["APP_CONFIG — frozen prices, vouchers, contact"]
+    VAL["validation.js VN phone email name"]
+    STR["string.js Levenshtein vi-fold"]
+    CFG["APP_CONFIG frozen prices vouchers contact"]
   end
 
-  subgraph Infrastructure["Infrastructure (browser + origin)"]
-    LS["localStorage / sessionStorage"]
+  subgraph Infrastructure["Infrastructure browser and origin"]
+    LS["localStorage and sessionStorage"]
     SW["Service Worker"]
-    AN["Analytics.js + Consent Mode v2"]
-    EXT["Zalo / WhatsApp / CDNs"]
+    AN["Analytics.js and Consent Mode v2"]
+    EXT["Zalo WhatsApp and CDNs"]
   end
 
   HTML --> MAIN --> APP
@@ -425,25 +425,26 @@ tests/                     Node.js test runner
 
 ```mermaid
 sequenceDiagram
+  autonumber
   actor U as Visitor
   participant D as Document
   participant M as main.js
   participant A as App
   participant S as AppState
   participant AN as Analytics
-  participant SW as Service Worker
+  participant SW as ServiceWorker
 
-  U->>D: GET /
+  U->>D: open storefront
   D->>M: DOMContentLoaded
-  M->>A: init()
-  A->>S: isLoading = true
-  A->>A: initializeManagers()
-  A->>AN: initAnalytics(config)
-  Note over AN: consent default = denied
+  M->>A: init
+  A->>S: set loading true
+  A->>A: initialize managers
+  A->>AN: init analytics
+  Note over AN: consent default denied
   alt production origin and feature flag
-    A->>SW: register /public/service-worker.js
+    A->>SW: register service worker
   end
-  A->>S: isLoading = false
+  A->>S: set loading false
   A-->>D: appReady
 ```
 
@@ -552,7 +553,7 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 
 | ID | Rule | Source |
 | --- | --- | --- |
-| BR-OPS-01 | Delivery coverage: HCMC and Tien Giang, Binh Duong, Dong Nai, Long An, Ba Ria–Vung Tau, Can Tho. | FAQ copy |
+| BR-OPS-01 | Delivery coverage: Ho Chi Minh City and selected Mekong Delta and neighbouring provinces (Tien Giang, Binh Duong, Dong Nai, Long An, Ba Ria–Vung Tau, Can Tho). Tien Giang here is a **delivery destination**, not the brand origin label. | FAQ copy |
 | BR-OPS-02 | Buyer may request cancel or change within 2 hours of the Zalo message. | FAQ copy |
 | BR-OPS-03 | Stated storage guidance: refrigerate up to 2 months, freeze up to 6 months. | FAQ copy |
 | BR-OPS-04 | Business hours 08:00–17:00 daily. | `contact.businessHours`, JSON-LD |
@@ -561,48 +562,51 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 
 ## 8. Operating flows
 
+The diagrams reconstruct **observed client paths**. They are not a back-office BPMN model.
+
 ### 8.1 Customer order (happy path)
 
 ```mermaid
 sequenceDiagram
+  autonumber
   actor B as Buyer
   participant UI as Storefront
-  participant V as validation.js
+  participant V as Validation
   participant S as AppState
   participant Z as Zalo
   actor O as Operator
 
-  B->>UI: Select SKU, qty, name, phone, address
-  UI->>V: validate name / VN mobile / address / SKU
+  B->>UI: select SKU quantity name phone address
+  UI->>V: validate name phone address and SKU
   alt invalid
-    V-->>UI: field error; scroll to first failure
-    UI-->>B: Correct input
+    V-->>UI: field error then scroll to first failure
+    UI-->>B: correct input
   else valid
-    UI->>S: formData, orderTotal
-    UI->>UI: clipboard.writeText(order message)
-    UI->>Z: window.open zalo.me/{number}
-    B->>Z: Send message (human step)
-    Z->>O: Conversation
-    O-->>B: Confirm stock, slot, payment
+    UI->>S: persist form data and order total
+    UI->>UI: copy order message to clipboard
+    UI->>Z: open Zalo conversation
+    B->>Z: send message
+    Z->>O: inbound conversation
+    O-->>B: confirm stock slot and payment
   end
 ```
 
-Cart checkout follows the same terminal step: build a line-item message, apply voucher if valid, open Zalo. There is no payment callback into this origin.
+Cart checkout terminates on the same step: compose a line-item message, apply a voucher if it satisfies BR-ORD-03–06, then open Zalo. This origin does not receive a payment callback.
 
 ### 8.2 Consent and measurement
 
 ```mermaid
 stateDiagram-v2
   [*] --> Unknown
-  Unknown --> Banner: no cookieConsent
-  Banner --> Essential: Essential only
-  Banner --> All: Accept all
-  Unknown --> Essential: cookieConsent=essential
-  Unknown --> All: cookieConsent=all
-  Essential --> Denied: gtag consent update denied
-  All --> CheckIds: IDs present and non-placeholder?
-  CheckIds --> Granted: yes — inject GA/GTM/Pixel
-  CheckIds --> Denied: no — do not fetch vendors
+  Unknown --> Banner: no stored consent
+  Banner --> Essential: essential only
+  Banner --> All: accept all
+  Unknown --> Essential: stored essential
+  Unknown --> All: stored all
+  Essential --> Denied: consent remains denied
+  All --> CheckIds: IDs configured and not placeholders
+  CheckIds --> Granted: inject measurement tags
+  CheckIds --> Denied: do not fetch vendors
 ```
 
 ### 8.3 Locale
@@ -617,9 +621,9 @@ stateDiagram-v2
 
 ```mermaid
 flowchart TD
-  Q{sessionStorage session valid and unexpired?}
+  Q{sessionStorage session valid and unexpired}
   Q -->|no| L[Password form]
-  L -->|SHA-256 match| P[Persist 4h session]
+  L -->|digest match| P[Persist 4h session]
   P --> F[Set adminAuthenticated]
   Q -->|yes| F
   F --> D[AdminDashboardManager]
