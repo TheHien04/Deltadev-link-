@@ -4,6 +4,10 @@
  * @module managers/UserAccountManager
  */
 
+import { sha256Hex } from '../utils/security.js';
+import { isValidEmail, validatePassword } from '../utils/validation.js';
+import logger from '../utils/logger.js';
+
 export class UserAccountManager {
     constructor(appState, config) {
         this.appState = appState;
@@ -101,7 +105,7 @@ export class UserAccountManager {
      * Initialize user account system
      */
     init() {
-        console.log('[UserAccountManager] Initializing...');
+        logger.info('[UserAccount]', 'Initializing...');
         
         // Load language
         this.currentLanguage = this.appState.get('currentLanguage') || 'vi';
@@ -393,28 +397,35 @@ export class UserAccountManager {
     /**
      * Handle login
      */
-    handleLogin(e) {
+    async handleLogin(e) {
         e.preventDefault();
         
-        const email = document.getElementById('loginEmail').value;
+        const email = document.getElementById('loginEmail').value.trim().toLowerCase();
         const password = document.getElementById('loginPassword').value;
 
-        if (!email || !password) {
+        if (!isValidEmail(email) || !password) {
             this.showNotification('error', this.t('emailRequired'));
             return;
         }
 
-        const user = this.users.find(u => u.email === email && u.password === password);
+        const hashed = await sha256Hex(password);
+        let user = this.users.find((entry) => entry.email === email && entry.password === hashed);
+
+        if (!user) {
+            user = this.users.find((entry) => entry.email === email && entry.password === password);
+            if (user) {
+                user.password = hashed;
+                this.saveUsers();
+            }
+        }
         
         if (user) {
             this.currentUser = { ...user };
-            delete this.currentUser.password; // Don't store password in session
+            delete this.currentUser.password;
             this.saveSession();
             this.updateUserUI();
             this.hideLoginModal();
             this.showNotification('success', this.t('loginSuccess'));
-            
-            // Dispatch event
             document.dispatchEvent(new CustomEvent('userLoggedIn', { detail: this.currentUser }));
         } else {
             this.showNotification('error', this.t('invalidLogin'));
@@ -424,16 +435,16 @@ export class UserAccountManager {
     /**
      * Handle register
      */
-    handleRegister(e) {
+    async handleRegister(e) {
         e.preventDefault();
         
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const phone = document.getElementById('registerPhone').value;
+        const name = document.getElementById('registerName').value.trim();
+        const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+        const phone = document.getElementById('registerPhone').value.trim();
         const password = document.getElementById('registerPassword').value;
         const confirmPassword = document.getElementById('registerConfirmPassword').value;
 
-        if (!email || !password) {
+        if (!isValidEmail(email) || !password) {
             this.showNotification('error', this.t('emailRequired'));
             return;
         }
@@ -443,7 +454,13 @@ export class UserAccountManager {
             return;
         }
 
-        if (this.users.find(u => u.email === email)) {
+        const strength = validatePassword(password);
+        if (!strength.valid) {
+            this.showNotification('error', strength.message);
+            return;
+        }
+
+        if (this.users.find((entry) => entry.email === email)) {
             this.showNotification('error', this.t('emailExists'));
             return;
         }
@@ -453,7 +470,7 @@ export class UserAccountManager {
             name,
             email,
             phone,
-            password,
+            password: await sha256Hex(password),
             address: '',
             createdAt: new Date().toISOString()
         };
@@ -469,7 +486,6 @@ export class UserAccountManager {
         this.hideLoginModal();
         this.showNotification('success', this.t('registerSuccess'));
         
-        // Dispatch event
         document.dispatchEvent(new CustomEvent('userRegistered', { detail: this.currentUser }));
     }
 

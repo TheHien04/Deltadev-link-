@@ -5,6 +5,7 @@
  */
 
 import APP_CONFIG from '../config/app.config.js';
+import logger from '../utils/logger.js';
 
 class AnimationManager {
     constructor() {
@@ -16,7 +17,7 @@ class AnimationManager {
      * Initialize animation manager
      */
     async init() {
-        console.log('[AnimationManager] Initializing...');
+        logger.info('[AnimationManager]', 'Initializing...');
         
         // Wait for AOS and GSAP to load
         await this.waitForLibraries();
@@ -27,7 +28,7 @@ class AnimationManager {
         // Initialize GSAP animations
         this.initGSAP();
         
-        console.log('[AnimationManager] Initialized');
+        logger.info('[AnimationManager]', 'Initialized');
     }
 
     /**
@@ -55,7 +56,7 @@ class AnimationManager {
      */
     initAOS() {
         if (!window.AOS) {
-            console.warn('[AnimationManager] AOS not loaded');
+            logger.warn('[AnimationManager]', 'AOS not loaded — content stays visible');
             return;
         }
 
@@ -71,7 +72,8 @@ class AnimationManager {
             });
 
             this.aosInitialized = true;
-            console.log('[AnimationManager] AOS initialized');
+            document.documentElement.classList.add('aos-enabled');
+            logger.info('[AnimationManager]', 'AOS initialized');
 
             // Refresh AOS on window resize
             let resizeTimeout;

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Quality certificate placeholder</title>
+  <desc id="desc">Placeholder artwork for food safety certification</desc>
+  <rect width="800" height="1000" fill="#F3F4F6"/>
+  <rect x="80" y="80" width="640" height="840" rx="16" fill="#fff" stroke="#C41E3A" stroke-width="8"/>
+  <circle cx="400" cy="280" r="90" fill="none" stroke="#F39C12" stroke-width="10"/>
+  <text x="400" y="288" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#C41E3A">QC</text>
+  <text x="400" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#1F2937">Quality Assured</text>
+  <text x="400" y="480" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#6B7280">Food safety documentation</text>
+  <rect x="160" y="560" width="480" height="16" rx="8" fill="#E5E7EB"/>
+  <rect x="160" y="600" width="380" height="16" rx="8" fill="#E5E7EB"/>
+  <rect x="160" y="640" width="420" height="16" rx="8" fill="#E5E7EB"/>
+</svg>

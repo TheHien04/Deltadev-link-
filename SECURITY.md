@@ -69,8 +69,8 @@ Instead:
 ### Known Limitations
 
 ⚠️ **Analytics IDs:**
-- Currently using placeholder IDs
-- Replace before production deployment
+- Left empty on purpose
+- Tracking loads only after cookie consent and only when real IDs are set in `app.config.js`
 
 ⚠️ **API Keys:**
 - No real API keys in repository

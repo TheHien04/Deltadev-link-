@@ -509,14 +509,17 @@ export class ShoppingCartManager {
      * Save cart to localStorage
      */
     saveCart() {
-        localStorage.setItem('thesundaybite_cart', JSON.stringify(this.cart));
+        const NEW_KEY = 'deltadev_cart';
+        const OLD_KEY = 'thesundaybite_cart';
+        localStorage.setItem(NEW_KEY, JSON.stringify(this.cart));
+        localStorage.removeItem(OLD_KEY);
     }
 
     /**
      * Load cart from localStorage
      */
     loadCart() {
-        const saved = localStorage.getItem('thesundaybite_cart');
+        const saved = localStorage.getItem('deltadev_cart') || localStorage.getItem('thesundaybite_cart');
         if (saved) {
             try {
                 this.cart = JSON.parse(saved);

@@ -23,6 +23,9 @@ import UserAccountManager from './managers/UserAccountManager.js';
 import StockManager from './managers/StockManager.js';
 import LoyaltyProgramManager from './managers/LoyaltyProgramManager.js';
 import NewsletterManager from './managers/NewsletterManager.js';
+import { initAnalytics } from './services/Analytics.js';
+import { ENV } from './config/env.config.js';
+import logger from './utils/logger.js';
 
 class App {
     constructor() {
@@ -34,39 +37,28 @@ class App {
      * Initialize application
      */
     async init() {
-        console.log(`%c🍖 ${APP_CONFIG.app.name} - v${APP_CONFIG.app.version}`, 'color: #C41E3A; font-size: 20px; font-weight: bold;');
-        console.log(`%cStarting...`, 'color: #666;');
+        logger.info('[App]', `${APP_CONFIG.app.name} - v${APP_CONFIG.app.version}`);
         
         try {
-            // Show loading state
             appState.set('isLoading', true);
             
-            // Wait for DOM to be ready
             await this.waitForDOM();
-            
-            // Initialize managers
             await this.initializeManagers();
-            
-            // Setup event listeners
             this.setupEventListeners();
+            initAnalytics(APP_CONFIG.analytics);
             
-            // Register service worker (PWA)
-            if (APP_CONFIG.features.enableServiceWorker) {
+            if (APP_CONFIG.features.enableServiceWorker && ENV.features.enableServiceWorker) {
                 this.registerServiceWorker();
             }
             
-            // Hide loading state
             appState.set('isLoading', false);
-            
             this.initialized = true;
             
-            console.log(`%c✅ Initialization Complete!`, 'color: #27AE60; font-weight: bold;');
-            
-            // Log performance metrics
+            logger.info('[App]', 'Initialization complete');
             this.logPerformanceMetrics();
             
         } catch (error) {
-            console.error('[App] Initialization failed:', error);
+            logger.error('[App]', 'Initialization failed:', error);
             appState.set('isLoading', false);
         }
     }
@@ -88,7 +80,7 @@ class App {
      * Initialize all managers
      */
     async initializeManagers() {
-        console.log('[App] Initializing managers...');
+        logger.info('[App]', 'Initializing managers...');
         
         // Language Manager
         this.managers.language = new LanguageManager();
@@ -162,53 +154,35 @@ class App {
         this.managers.animation = new AnimationManager();
         await this.managers.animation.init();
         
-        console.log('[App] All managers initialized');
+        logger.info('[App]', 'All managers initialized');
     }
 
     /**
      * Setup global event listeners
      */
     setupEventListeners() {
-        // Handle visibility change
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                console.log('[App] Page hidden');
-            } else {
-                console.log('[App] Page visible');
-                // Refresh animations if needed
-                if (this.managers.animation) {
-                    this.managers.animation.refreshAOS();
-                }
+            if (!document.hidden && this.managers.animation) {
+                this.managers.animation.refreshAOS();
             }
         });
 
-        // Handle online/offline status
         window.addEventListener('online', () => {
-            console.log('[App] Back online');
             this.showNotification('You are back online', 'success');
         });
 
         window.addEventListener('offline', () => {
-            console.log('[App] Offline');
-            this.showNotification('You are offline', 'warning');
+            this.showNotification('You are offline. Some features may be unavailable.', 'warning');
         });
 
-        // Handle errors globally
         window.addEventListener('error', (event) => {
-            console.error('[App] Global error:', event.error);
+            logger.error('[App]', 'Global error:', event.error);
         });
 
-        // Handle unhandled promise rejections
         window.addEventListener('unhandledrejection', (event) => {
-            console.error('[App] Unhandled promise rejection:', event.reason);
+            logger.error('[App]', 'Unhandled promise rejection:', event.reason);
         });
 
-        // Handle language changes
-        document.addEventListener('languageChanged', (event) => {
-            console.log('[App] Language changed to:', event.detail.language);
-        });
-
-        // Handle before unload (save state)
         window.addEventListener('beforeunload', () => {
             appState.persist();
         });
@@ -219,28 +193,23 @@ class App {
      */
     async registerServiceWorker() {
         if (!('serviceWorker' in navigator)) {
-            console.warn('[App] Service workers not supported');
             return;
         }
 
         try {
-            const registration = await navigator.serviceWorker.register('/public/service-worker.js');
-            console.log('[App] Service Worker registered:', registration.scope);
+            const registration = await navigator.serviceWorker.register('/public/service-worker.js', { scope: '/' });
+            logger.info('[App]', 'Service Worker registered:', registration.scope);
             
-            // Handle updates
             registration.addEventListener('updatefound', () => {
-                console.log('[App] Service Worker update found');
                 const newWorker = registration.installing;
-                
-                newWorker.addEventListener('statechange', () => {
+                newWorker?.addEventListener('statechange', () => {
                     if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                        console.log('[App] New version available');
-                        this.showNotification('New version available! Refresh to update.', 'info');
+                        this.showNotification('A new version is available. Refresh to update.', 'info');
                     }
                 });
             });
         } catch (error) {
-            console.error('[App] Service Worker registration failed:', error);
+            logger.warn('[App]', 'Service Worker registration failed:', error);
         }
     }
 
@@ -258,6 +227,8 @@ class App {
         };
 
         const toast = document.createElement('div');
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
         toast.style.cssText = `
             position: fixed;
             bottom: 2rem;
@@ -286,50 +257,17 @@ class App {
      * Log performance metrics
      */
     logPerformanceMetrics() {
-        if (!performance || !performance.timing) return;
+        if (!logger.enabled || typeof performance === 'undefined') return;
 
-        const timing = performance.timing;
-        const loadTime = timing.loadEventEnd - timing.navigationStart;
-        const domReady = timing.domContentLoadedEventEnd - timing.navigationStart;
-        const firstPaint = performance.getEntriesByType('paint')?.[0]?.startTime || 0;
+        const nav = performance.getEntriesByType?.('navigation')?.[0];
+        const paint = performance.getEntriesByType?.('paint') || [];
+        const firstPaint = paint.find((entry) => entry.name === 'first-contentful-paint')?.startTime;
 
-        console.log('%cPerformance Metrics:', 'color: #3498DB; font-weight: bold;');
-        console.log(`  Page Load Time: ${loadTime}ms`);
-        console.log(`  DOM Ready: ${domReady}ms`);
-        console.log(`  First Paint: ${firstPaint.toFixed(2)}ms`);
-
-        // Check Core Web Vitals if available
-        if (window.PerformanceObserver) {
-            try {
-                // Largest Contentful Paint (LCP)
-                new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    const lastEntry = entries[entries.length - 1];
-                    console.log(`  LCP: ${lastEntry.renderTime || lastEntry.loadTime}ms`);
-                }).observe({ entryTypes: ['largest-contentful-paint'] });
-
-                // First Input Delay (FID)
-                new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    entries.forEach(entry => {
-                        console.log(`  FID: ${entry.processingStart - entry.startTime}ms`);
-                    });
-                }).observe({ entryTypes: ['first-input'] });
-
-                // Cumulative Layout Shift (CLS)
-                let clsScore = 0;
-                new PerformanceObserver((list) => {
-                    list.getEntries().forEach(entry => {
-                        if (!entry.hadRecentInput) {
-                            clsScore += entry.value;
-                        }
-                    });
-                    console.log(`  CLS: ${clsScore.toFixed(3)}`);
-                }).observe({ entryTypes: ['layout-shift'] });
-            } catch (error) {
-                console.warn('[App] Could not observe performance metrics:', error);
-            }
-        }
+        logger.info('[Perf]', {
+            domContentLoaded: nav ? Math.round(nav.domContentLoadedEventEnd) : null,
+            loadEvent: nav ? Math.round(nav.loadEventEnd) : null,
+            firstContentfulPaint: firstPaint ? Math.round(firstPaint) : null
+        });
     }
 
     /**

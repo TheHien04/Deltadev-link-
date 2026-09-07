@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">DeltaDev Link Gift Box</title>
+  <desc id="desc">Branded placeholder for the artisan gift box</desc>
+  <rect width="1000" height="1000" fill="#F9FAFB"/>
+  <rect x="180" y="220" width="640" height="520" rx="28" fill="#C41E3A"/>
+  <rect x="230" y="270" width="540" height="420" rx="18" fill="#fff"/>
+  <rect x="455" y="220" width="90" height="520" fill="#F39C12"/>
+  <text x="500" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#1F2937">Gift Box</text>
+  <text x="500" y="520" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#C41E3A">Premium assortment</text>
+</svg>

@@ -4,6 +4,8 @@
  * @module state/AppState
  */
 
+import logger from '../utils/logger.js';
+
 class AppState {
     constructor() {
         this._state = {
@@ -14,52 +16,34 @@ class AppState {
             isScrolled: false,
             currentSection: 'home',
             formData: {},
-            orderTotal: 0
+            orderTotal: 0,
+            cart: [],
+            currentUser: null
         };
 
-        // Observers for state changes
         this._observers = {};
     }
 
-    /**
-     * Get current state
-     * @param {string} key - State key
-     * @returns {*} State value
-     */
     get(key) {
         return this._state[key];
     }
 
-    /**
-     * Set state and notify observers
-     * @param {string} key - State key
-     * @param {*} value - New value
-     */
     set(key, value) {
         const oldValue = this._state[key];
-        
         if (oldValue === value) return;
 
         this._state[key] = value;
-
-        // Notify observers
         this._notifyObservers(key, value, oldValue);
-
-        // Log state changes for debugging
-        console.log(`[State Change] ${key}:`, oldValue, '->', value);
+        logger.debug('[State]', `${key}:`, oldValue, '->', value);
     }
 
-    /**
-     * Get entire state object (read-only)
-     * @returns {object} State object
-     */
     getAll() {
         return { ...this._state };
     }
 
     /**
-     * Update multiple state values at once
-     * @param {object} updates - Object with key-value pairs
+     * Update multiple keys. Also exposed as setState() for manager compatibility.
+     * @param {object} updates
      */
     update(updates) {
         Object.entries(updates).forEach(([key, value]) => {
@@ -67,12 +51,10 @@ class AppState {
         });
     }
 
-    /**
-     * Subscribe to state changes
-     * @param {string} key - State key to observe
-     * @param {Function} callback - Callback function
-     * @returns {Function} Unsubscribe function
-     */
+    setState(updates) {
+        this.update(updates);
+    }
+
     subscribe(key, callback) {
         if (!this._observers[key]) {
             this._observers[key] = [];
@@ -80,27 +62,19 @@ class AppState {
 
         this._observers[key].push(callback);
 
-        // Return unsubscribe function
         return () => {
-            this._observers[key] = this._observers[key].filter(cb => cb !== callback);
+            this._observers[key] = this._observers[key].filter((cb) => cb !== callback);
         };
     }
 
-    /**
-     * Notify all observers of a state change
-     * @private
-     */
     _notifyObservers(key, newValue, oldValue) {
         if (this._observers[key]) {
-            this._observers[key].forEach(callback => {
+            this._observers[key].forEach((callback) => {
                 callback(newValue, oldValue);
             });
         }
     }
 
-    /**
-     * Reset state to initial values
-     */
     reset() {
         this._state = {
             currentLanguage: 'en',
@@ -110,64 +84,49 @@ class AppState {
             isScrolled: false,
             currentSection: 'home',
             formData: {},
-            orderTotal: 0
+            orderTotal: 0,
+            cart: [],
+            currentUser: null
         };
 
-        // Notify all observers
-        Object.keys(this._observers).forEach(key => {
+        Object.keys(this._observers).forEach((key) => {
             this._notifyObservers(key, this._state[key], undefined);
         });
     }
 
-    /**
-     * Persist state to localStorage
-     * @param {string[]} keys - Keys to persist
-     */
     persist(keys = ['currentLanguage']) {
         try {
             const stateToPersist = {};
-            keys.forEach(key => {
+            keys.forEach((key) => {
                 if (this._state[key] !== undefined) {
                     stateToPersist[key] = this._state[key];
                 }
             });
-
             localStorage.setItem('appState', JSON.stringify(stateToPersist));
         } catch (error) {
-            console.error('[AppState] Failed to persist state:', error);
+            logger.error('[AppState]', 'Failed to persist state:', error);
         }
     }
 
-    /**
-     * Restore state from localStorage
-     * @param {string[]} keys - Keys to restore
-     */
     restore(keys = ['currentLanguage']) {
         try {
             const persistedState = localStorage.getItem('appState');
-            
-            if (persistedState) {
-                const state = JSON.parse(persistedState);
-                
-                keys.forEach(key => {
-                    if (state[key] !== undefined) {
-                        this.set(key, state[key]);
-                    }
-                });
-            }
+            if (!persistedState) return;
+
+            const state = JSON.parse(persistedState);
+            keys.forEach((key) => {
+                if (state[key] !== undefined) {
+                    this.set(key, state[key]);
+                }
+            });
         } catch (error) {
-            console.error('[AppState] Failed to restore state:', error);
+            logger.error('[AppState]', 'Failed to restore state:', error);
         }
     }
 }
 
-// Create and export singleton instance
 const appState = new AppState();
-
-// Restore persisted state on load
 appState.restore();
-
-// Persist state changes automatically
 appState.subscribe('currentLanguage', () => {
     appState.persist(['currentLanguage']);
 });

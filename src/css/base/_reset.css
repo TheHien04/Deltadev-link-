@@ -245,11 +245,26 @@ table {
     background: var(--color-primary);
 }
 
-/* ========================================
-   FOCUS VISIBLE (Modern)
-   ======================================== */
+/* Prevent AOS from hiding content before init or when JS fails */
+html:not(.aos-enabled) [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+}
 
-:focus-visible {
+/* Broken-image fallback frame */
+img.error,
+img.img-fallback {
+    object-fit: cover;
+    background: var(--color-gray-100);
+}
+
+/* Visible keyboard focus for interactive controls */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }

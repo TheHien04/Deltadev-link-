@@ -8,10 +8,10 @@ export const APP_CONFIG = {
     // Application Info
     app: {
         name: 'DeltaDev Link',
-        version: '3.0.0',
-        description: 'Premium Vietnamese Lap Xuong',
+        version: '3.2.1',
+        description: 'Premium Vietnamese artisan sausage from Cai Be, Tien Giang',
         author: 'DeltaDev Link Team',
-        buildDate: '2025-02-16'
+        buildDate: '2026-09-07'
     },
 
     // Contact Information
@@ -78,8 +78,8 @@ export const APP_CONFIG = {
     form: {
         validation: {
             phone: {
-                pattern: /^[0-9]{10}$/,
-                message: 'Please enter a valid 10-digit phone number'
+                pattern: /^(0|\+84)(3|5|7|8|9)\d{8}$/,
+                message: 'Please enter a valid Vietnamese mobile number'
             },
             name: {
                 minLength: 2,
@@ -187,8 +187,27 @@ export const APP_CONFIG = {
     seo: {
         siteName: 'DeltaDev Link',
         siteUrl: 'https://deltadevlink.com',
-        twitterHandle: '@thesundaybite',
-        ogImage: '/src/assets/images/Product2.jpg'
+        twitterHandle: '@deltadevlink',
+        ogImage: '/src/assets/images/product-classic.svg'
+    },
+
+    // Analytics — leave empty until real IDs are issued. Placeholders are never loaded.
+    analytics: {
+        googleAnalyticsId: '',
+        googleTagManagerId: '',
+        facebookPixelId: ''
+    },
+
+    // Bank transfer details shown in the payment modal
+    payments: {
+        banks: [
+            {
+                name: 'Vietcombank',
+                accountName: 'NGUYEN THE HIEN',
+                accountNumber: '0373948649',
+                branch: 'Tien Giang'
+            }
+        ]
     }
 };
 

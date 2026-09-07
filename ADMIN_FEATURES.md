@@ -3,9 +3,9 @@
 ## ✅ Implemented Features
 
 ### 🔐 Authentication
-- Login screen with username/password (admin/admin123)
-- Session persistence with localStorage
-- Logout functionality
+- Client-side demo lock screen (password: `DeltaDev-Admin-2026`)
+- Session stored in `sessionStorage` for 4 hours
+- **Not production auth** — replace with a real backend before public deploy
 
 ### 📊 Dashboard Overview
 - Real-time statistics cards

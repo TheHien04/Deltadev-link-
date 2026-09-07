@@ -19,7 +19,12 @@ class LanguageManager {
     init() {
         console.log('[LanguageManager] Initializing...');
         
-        // Get all translatable elements
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang');
+        if (urlLang && APP_CONFIG.language.supported.includes(urlLang)) {
+            this.currentLang = urlLang;
+        }
+
         this.cacheElements();
         
         // Set up language switcher
@@ -91,7 +96,21 @@ class LanguageManager {
         // Update document lang attribute
         document.documentElement.lang = lang;
 
-        // Update all translatable elements
+        try {
+            const url = new URL(window.location.href);
+            url.searchParams.set('lang', lang);
+            history.replaceState({}, '', url);
+        } catch {
+            // Ignore URL updates on file:// or unsupported browsers
+        }
+
+        const langSwitch = document.getElementById('langSwitch');
+        if (langSwitch) {
+            const next = lang === 'en' ? 'Vietnamese' : 'English';
+            langSwitch.setAttribute('aria-label', `Switch language to ${next}`);
+            langSwitch.setAttribute('aria-pressed', lang === 'vi' ? 'true' : 'false');
+        }
+
         this.updateElements(animate);
     }
 

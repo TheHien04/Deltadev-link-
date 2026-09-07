@@ -6,6 +6,9 @@
 
 import APP_CONFIG from '../config/app.config.js';
 import appState from '../state/AppState.js';
+import { isValidVnPhone, isValidName, isValidAddress, normalizePhone } from '../utils/validation.js';
+import { formatVnd } from '../utils/format.js';
+import logger from '../utils/logger.js';
 
 class FormHandler {
     constructor() {
@@ -20,13 +23,13 @@ class FormHandler {
      * Initialize form handler
      */
     init() {
-        console.log('[FormHandler] Initializing...');
+        logger.info('[FormHandler]', 'Initializing...');
         
         this.cacheElements();
         this.setupEventListeners();
         this.setupValidation();
         
-        console.log('[FormHandler] Initialized');
+        logger.info('[FormHandler]', 'Initialized');
     }
 
     /**
@@ -50,7 +53,7 @@ class FormHandler {
      */
     setupEventListeners() {
         if (!this.form) {
-            console.warn('[FormHandler] Order form not found');
+            logger.warn('[FormHandler]', 'Order form not found');
             return;
         }
 
@@ -95,8 +98,7 @@ class FormHandler {
         // Phone number validation
         if (this.phoneInput) {
             this.phoneInput.addEventListener('input', (e) => {
-                // Only allow numbers
-                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                e.target.value = e.target.value.replace(/[^\d+]/g, '');
             });
         }
 
@@ -132,21 +134,23 @@ class FormHandler {
             errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
         }
 
-        // Phone validation
         if (fieldName === 'phone' && value) {
-            const phonePattern = APP_CONFIG.form.validation.phone.pattern;
-            if (!phonePattern.test(value)) {
+            if (!isValidVnPhone(value)) {
                 isValid = false;
                 errorMessage = APP_CONFIG.form.validation.phone.message;
             }
         }
 
-        // Name validation
         if (fieldName === 'name' && value) {
-            if (value.length < APP_CONFIG.form.validation.name.minLength) {
+            if (!isValidName(value, APP_CONFIG.form.validation.name.minLength)) {
                 isValid = false;
                 errorMessage = APP_CONFIG.form.validation.name.message;
             }
+        }
+
+        if (fieldName === 'address' && value && !isValidAddress(value)) {
+            isValid = false;
+            errorMessage = 'Please enter a more complete delivery address';
         }
 
         if (!isValid) {
@@ -211,7 +215,7 @@ class FormHandler {
         const total = price * quantity;
         
         // Update display with formatted price
-        this.totalPriceDisplay.textContent = this.formatPrice(total);
+        this.totalPriceDisplay.textContent = formatVnd(total);
         
         // Update state
         appState.set('orderTotal', total);
@@ -223,7 +227,7 @@ class FormHandler {
      * @returns {string} Formatted price
      */
     formatPrice(price) {
-        return price.toLocaleString('vi-VN') + '₫';
+        return formatVnd(price);
     }
 
     /**
@@ -260,7 +264,7 @@ class FormHandler {
     handleSubmit() {
         // Validate form
         if (!this.validateForm()) {
-            console.warn('[FormHandler] Form validation failed');
+            logger.warn('[FormHandler]', 'Form validation failed');
             
             // Scroll to first error
             const firstError = this.form.querySelector('.error');
@@ -283,7 +287,7 @@ class FormHandler {
         // Open Zalo with message
         this.openZalo(message);
         
-        console.log('[FormHandler] Form submitted:', formData);
+        logger.info('[FormHandler]', 'Order prepared for Zalo');
     }
 
     /**
@@ -295,7 +299,7 @@ class FormHandler {
         
         return {
             name: this.nameInput.value.trim(),
-            phone: this.phoneInput.value.trim(),
+            phone: normalizePhone(this.phoneInput.value.trim()),
             address: this.addressInput.value.trim(),
             product: selectedOption.textContent,
             productId: this.productSelect.value,
@@ -357,21 +361,13 @@ Thank you for your order! 🙏`;
      */
     openZalo(message) {
         const zaloNumber = APP_CONFIG.contact.zaloNumber;
-        const encodedMessage = encodeURIComponent(message);
-        
-        // Try to open Zalo app first, fallback to web
-        const zaloAppUrl = `zalo://qr/p/${zaloNumber}?text=${encodedMessage}`;
         const zaloWebUrl = `https://zalo.me/${zaloNumber}`;
-        
-        // Attempt to open app
-        window.location.href = zaloAppUrl;
-        
-        // Fallback to web after short delay
-        setTimeout(() => {
-            window.open(zaloWebUrl, '_blank');
-        }, 1000);
-        
-        // Show success message
+
+        if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(message).catch(() => {});
+        }
+
+        window.open(zaloWebUrl, '_blank', 'noopener,noreferrer');
         this.showSuccessMessage();
     }
 
@@ -381,8 +377,8 @@ Thank you for your order! 🙏`;
     showSuccessMessage() {
         const lang = appState.get('currentLanguage');
         const message = lang === 'vi' 
-            ? '✅ Đang chuyển sang Zalo để hoàn tất đơn hàng...' 
-            : '✅ Redirecting to Zalo to complete your order...';
+            ? '✅ Đã sao chép đơn hàng. Đang mở Zalo để gửi...' 
+            : '✅ Order copied. Opening Zalo to send...';
         
         // Create toast notification
         const toast = document.createElement('div');

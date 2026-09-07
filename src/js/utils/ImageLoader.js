@@ -1,8 +1,12 @@
 /**
  * Image Loader Utility
- * Lazy loading images with Intersection Observer
+ * Lazy loading images with Intersection Observer and graceful fallbacks
  * @module utils/ImageLoader
  */
+
+import logger from './logger.js';
+
+const FALLBACK_SRC = '/src/assets/images/product-classic.svg';
 
 class ImageLoader {
     constructor() {
@@ -16,13 +20,14 @@ class ImageLoader {
      * Initialize image loader
      */
     init() {
-        console.log('[ImageLoader] Initializing...');
+        logger.info('[ImageLoader]', 'Initializing...');
         
         this.cacheImages();
         this.setupIntersectionObserver();
         this.observeImages();
+        this.bindBrokenImageFallbacks();
         
-        console.log(`[ImageLoader] Initialized with ${this.total} images`);
+        logger.info('[ImageLoader]', `Initialized with ${this.total} images`);
     }
 
     /**
@@ -92,16 +97,33 @@ class ImageLoader {
                 detail: { src, loaded: this.loaded, total: this.total }
             }));
             
-            console.log(`[ImageLoader] Loaded ${this.loaded}/${this.total}: ${src}`);
+            logger.debug('[ImageLoader]', `Loaded ${this.loaded}/${this.total}`);
         };
 
         imageLoader.onerror = () => {
             img.classList.remove('loading');
             img.classList.add('error');
-            console.error(`[ImageLoader] Failed to load: ${src}`);
+            this.applyFallback(img);
+            logger.warn('[ImageLoader]', 'Failed to load:', src);
         };
 
         imageLoader.src = src;
+    }
+
+    applyFallback(img) {
+        if (!img || img.dataset.fallbackApplied === 'true') return;
+        img.dataset.fallbackApplied = 'true';
+        img.src = FALLBACK_SRC;
+        img.classList.add('img-fallback');
+    }
+
+    bindBrokenImageFallbacks() {
+        document.querySelectorAll('img').forEach((img) => {
+            img.addEventListener('error', () => this.applyFallback(img), { once: true });
+            if (img.complete && img.naturalWidth === 0 && img.src) {
+                this.applyFallback(img);
+            }
+        });
     }
 
     /**
