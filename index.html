@@ -7,16 +7,13 @@
     
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://connect.facebook.net https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://fonts.gstatic.com https://fonts.googleapis.com; frame-src 'self' https://www.google.com; base-uri 'self'; form-action 'self';">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
     <!-- Primary Meta Tags -->
     <title>DeltaDev Link | Artisan sausage from the Mekong Delta</title>
     <meta name="title" content="DeltaDev Link | Artisan sausage from the Mekong Delta">
     <meta name="description" content="DeltaDev Link is a bilingual storefront for artisan sausage produced in Vietnam’s Mekong Delta. Traditional curing methods are presented alongside a messaging-based order flow.">
-    <meta name="keywords" content="DeltaDev Link, IT guy sausage, Western developer, artisan sausage, Vietnamese sausage, Heritage Classic Link, Mekong Delta food, premium sausage, traditional sausage, HCMC food delivery">
+    <meta name="keywords" content="DeltaDev Link, artisan sausage, Vietnamese sausage, Heritage Classic Link, Mekong Delta food, lap xuong, HCMC food delivery">
     <meta name="author" content="DeltaDev Link">
     <meta name="robots" content="index, follow">
     <meta name="language" content="English, Vietnamese">
@@ -36,7 +33,7 @@
     <meta property="og:url" content="https://deltadevlink.com/">
     <meta property="og:title" content="DeltaDev Link | Artisan sausage from the Mekong Delta">
     <meta property="og:description" content="Artisan sausage from Vietnam’s Mekong Delta. A bilingual storefront with validated enquiry capture and Zalo handoff.">
-    <meta property="og:image" content="https://deltadevlink.com/src/assets/images/product-classic.svg">
+    <meta property="og:image" content="https://deltadevlink.com/public/images/Home.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -48,7 +45,7 @@
     <meta name="twitter:url" content="https://deltadevlink.com/">
     <meta name="twitter:title" content="DeltaDev Link | Artisan sausage from the Mekong Delta">
     <meta name="twitter:description" content="Artisan sausage from Vietnam’s Mekong Delta. Bilingual storefront with messaging-based order flow.">
-    <meta name="twitter:image" content="https://deltadevlink.com/src/assets/images/product-classic.svg">
+    <meta name="twitter:image" content="https://deltadevlink.com/public/images/Home.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/src/assets/images/favicon.svg">
@@ -106,10 +103,10 @@
     </script>
     
     <!-- AOS - Animate On Scroll Library v3.0 (Latest) -->
-    <link href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.css" rel="stylesheet" integrity="sha384-6oNXtl81GMcKAnWPPXinWlPskKUQ0NGG1/XeyMfC5RgCJKPc03w0rHVt1jyoJLf0" crossorigin="anonymous">
     
-    <!-- Swiper.js - Modern Slider Library v11 (Latest) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper.js v11.1.15 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.css" integrity="sha384-MdnrlY6/tTqzJktd2Qggj4+cvO+mWr9dBsZQ85pDtLZ8pUz04iOGmZ/4y+dKB0/2" crossorigin="anonymous">
     
     <!-- Custom Modular Stylesheet -->
     <link rel="stylesheet" href="/src/css/main.css">
@@ -121,7 +118,7 @@
       "@type": "FoodEstablishment",
       "@id": "https://deltadevlink.com/#localbusiness",
       "name": "DeltaDev Link",
-      "image": "https://deltadevlink.com/src/assets/images/product-classic.svg",
+      "image": "https://deltadevlink.com/public/images/Home.jpg",
       "description": "Artisan sausage producer based in Vietnam’s Mekong Delta. Bilingual storefront with messaging-based order capture.",
       "url": "https://deltadevlink.com/",
       "telephone": "+84373948649",
@@ -141,15 +138,10 @@
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "08:00",
-        "closes": "20:00"
+        "closes": "17:00"
       },
       "priceRange": "$$",
-      "servesCuisine": "Vietnamese",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "127"
-      }
+      "servesCuisine": "Vietnamese"
     }
     </script>
 
@@ -664,7 +656,7 @@
                                     <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                                     </svg>
-                                    <span class="text-green-600 font-semibold" data-en="In Stock: 32 boxes" data-vi="Còn hàng: 32 hộp">C òn hàng: 32 hộp</span>
+                                    <span class="text-green-600 font-semibold" data-en="In Stock: 32 boxes" data-vi="Còn hàng: 32 hộp">Còn hàng: 32 hộp</span>
                                 </div>
                                 <button class="add-to-cart w-full py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-all transform hover:scale-105 font-semibold flex items-center justify-center gap-2"
                                         data-product-id="lap-xuong-gift"
@@ -1917,7 +1909,7 @@
             </div>
 
             <!-- Payment/Certification Info Modal -->
-            <div id="infoModal" style="display: none;" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" onclick="closeInfoModal(event)">
+            <div id="infoModal" style="display: none;" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="closeInfoModal(event)">
                 <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl transform transition-all" onclick="event.stopPropagation()">
                     <div class="flex justify-between items-start mb-4">
                         <h3 id="modalTitle" class="text-xl font-bold text-gray-800"></h3>
@@ -2885,19 +2877,11 @@
         });
     </script>
 
-    <!-- External Libraries -->
-    <!-- Alpine.js v3 (Modern Reactive Framework) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
-    
-    <!-- AOS - Animate On Scroll v3.0 -->
-    <script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js"></script>
-    
-    <!-- Swiper.js v11 -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- GSAP v3.12 (Animation Library) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- External libraries (pinned + SRI). Tailwind Play CDN cannot carry a stable digest. -->
+    <script src="https://unpkg.com/aos@3.0.0-beta.6/dist/aos.js" integrity="sha384-ZGo5k5ISlEzWLoXyt+lnvKt9j03Z7GkxXh14zLqVy098XJhcdKHjL8pQYVMI8WiH" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.15/swiper-bundle.min.js" integrity="sha384-eSR7zK1V2s4cY/aOWYdtyMXBr5qXmV7r8Wq7s39HiVKWy19PcLe1WCYP6bvdrRFu" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
 
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/84373948649?text=Hello%20DeltaDev%20Link!%20I%27m%20interested%20in%20your%20sausages"
@@ -2905,21 +2889,20 @@
        rel="noopener noreferrer"
        class="whatsapp-float fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 transition-all duration-300 z-50 group"
        aria-label="Chat on WhatsApp">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
-        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full animate-pulse">1</span>
         <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Chat with us!
+            Chat with us
         </span>
     </a>
 
     <!-- Bank Transfer Payment Modal -->
-    <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full animate-slideUp">
             <div class="p-6 border-b border-gray-200">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                    <h3 id="paymentModalTitle" class="text-2xl font-bold text-gray-800 flex items-center gap-2">
                         <svg class="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
                             <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>

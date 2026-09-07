@@ -218,7 +218,7 @@ export class LiveChatWidget {
                 url = `https://m.me/${this.config.liveChat.facebook.pageId}`;
                 break;
             case 'whatsapp':
-                url = `https://wa.me/${this.config.liveChat.whatsapp.phoneNumber}?text=Hello%20The%20Sunday%20Bite!%20T%C3%B4i%20mu%E1%BB%91n%20%C4%91%E1%BA%B7t%20h%C3%A0ng%20l%E1%BA%A1p%20x%C6%B0%E1%BB%9Fng`;
+                url = `https://wa.me/${this.config.liveChat.whatsapp.phoneNumber}?text=Hello%20DeltaDev%20Link%20I%20would%20like%20to%20enquire%20about%20an%20order`;
                 break;
             case 'phone':
                 url = `tel:${this.config.contact.phone}`;

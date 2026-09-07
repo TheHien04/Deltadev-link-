@@ -54,9 +54,26 @@ export function isConfiguredId(id) {
   return !isPlaceholderId(id);
 }
 
+/**
+ * Recursively freeze a plain object tree.
+ * @param {object} object
+ * @returns {object}
+ */
+export function deepFreeze(object) {
+  if (!object || typeof object !== 'object') return object;
+  Object.keys(object).forEach((key) => {
+    const value = object[key];
+    if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+      deepFreeze(value);
+    }
+  });
+  return Object.freeze(object);
+}
+
 export default {
   escapeHtml,
   sha256Hex,
   isPlaceholderId,
-  isConfiguredId
+  isConfiguredId,
+  deepFreeze
 };

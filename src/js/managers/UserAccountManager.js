@@ -409,15 +409,7 @@ export class UserAccountManager {
         }
 
         const hashed = await sha256Hex(password);
-        let user = this.users.find((entry) => entry.email === email && entry.password === hashed);
-
-        if (!user) {
-            user = this.users.find((entry) => entry.email === email && entry.password === password);
-            if (user) {
-                user.password = hashed;
-                this.saveUsers();
-            }
-        }
+        const user = this.users.find((entry) => entry.email === email && entry.password === hashed);
         
         if (user) {
             this.currentUser = { ...user };

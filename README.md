@@ -413,7 +413,6 @@ src/js/app.js              composition root
 src/js/config/             frozen app + environment config
 src/js/state/AppState.js   observer-based in-memory state
 src/js/managers/           UI feature controllers
-src/js/features/           search, wishlist, comparison, reviews
 src/js/services/           analytics loader, platform helpers
 src/js/utils/              validation, hashing, logging, formatters
 src/css/                   tokens, reset, components
@@ -469,11 +468,10 @@ Versions below are those referenced in `index.html`, `package.json`, and `admin.
 | Styling | Custom properties + Tailwind Play CDN | 3.4.1 | Utility CSS |
 | Type | Google Fonts: Poppins, Playfair Display | — | UI + display |
 | Language | ECMAScript 2022 modules | `type="module"` | Application code |
-| Light reactivity | Alpine.js | 3.x (CDN) | Optional declarative UI |
-| Motion | AOS | 3.0.0-beta.6 | Scroll reveal |
-| Motion | GSAP + ScrollTrigger | 3.12.5 | Hero / scroll timelines |
-| Carousel | Swiper | 11 | Product slider |
-| Charts (admin) | Chart.js | 4.4.1 | Prototype dashboards |
+| Motion | AOS | 3.0.0-beta.6 (SRI) | Scroll reveal |
+| Motion | GSAP + ScrollTrigger | 3.12.5 (SRI) | Hero / scroll timelines |
+| Carousel | Swiper | 11.1.15 (SRI) | Product slider |
+| Charts (admin) | Chart.js | 4.4.1 (SRI) | Prototype dashboards |
 | PWA | Web App Manifest + Service Worker | cache `deltadev-link-v3.2.1` | Install + offline shell |
 | Storage | `localStorage`, `sessionStorage` | — | Cart, locale, demo session |
 | Crypto (demo) | Web Crypto `SHA-256` | — | Demo password digest only |
@@ -677,7 +675,7 @@ Before a public deploy, replace `seo.siteUrl` if the production origin is not `h
 | Demo user passwords | SHA-256 in `localStorage` | Client-side hashing is not a password vault |
 | Admin prototype | 4-hour session lock | Trivial to bypass; keep `/admin.html` off production or behind an IdP |
 | XSS from error text | `escapeHtml` on the boot banner | Inline scripts remain (Tailwind CDN); CSP allows `'unsafe-inline'` |
-| Supply chain | HTTPS CDNs | No SRI; pin and vendor libraries for production |
+| Supply chain | HTTPS CDNs; SRI on AOS, Swiper, GSAP, Chart.js | Tailwind Play CDN still has no stable digest; remaining inline scripts force `'unsafe-inline'` |
 
 Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md). Do not file public issues for exploitable defects.
 

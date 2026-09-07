@@ -130,7 +130,7 @@ By contributing, you agree that your contributions will be licensed under the [M
 ## 💬 Questions?
 
 - Open an issue for questions
-- Contact: support@deltadevlink.com
+- Contact: thesundaybite@gmail.com
 - Phone: 0373948649
 
 ## 🙏 Thank You!

@@ -10,7 +10,8 @@ import {
 } from '../src/js/utils/validation.js';
 import { levenshteinDistance, stringSimilarity, foldVietnamese } from '../src/js/utils/string.js';
 import { formatVnd } from '../src/js/utils/format.js';
-import { escapeHtml, isPlaceholderId, isConfiguredId } from '../src/js/utils/security.js';
+import { escapeHtml, isPlaceholderId, isConfiguredId, sha256Hex, deepFreeze } from '../src/js/utils/security.js';
+import { verifyAdminPassword } from '../src/js/utils/admin-auth.js';
 
 test('accepts Vietnamese mobile numbers in local and international form', () => {
   assert.equal(isValidVnPhone('0373948649'), true);
@@ -62,4 +63,22 @@ test('escapes HTML and detects placeholder analytics IDs', () => {
   assert.equal(isPlaceholderId('GTM-XXXXXXX'), true);
   assert.equal(isPlaceholderId(''), true);
   assert.equal(isConfiguredId('G-ABCD123456'), true);
+});
+
+test('sha256Hex is stable and deepFreeze seals nested objects', async () => {
+  const digest = await sha256Hex('delta-dev-link');
+  assert.equal(digest, await sha256Hex('delta-dev-link'));
+  assert.equal(digest.length, 64);
+  const tree = { contact: { email: 'a@b.c' } };
+  deepFreeze(tree);
+  assert.equal(Object.isFrozen(tree), true);
+  assert.equal(Object.isFrozen(tree.contact), true);
+  assert.throws(() => {
+    tree.contact.email = 'other@example.com';
+  }, TypeError);
+});
+
+test('admin digest rejects empty and well-known demo strings', async () => {
+  assert.equal(await verifyAdminPassword(''), false);
+  assert.equal(await verifyAdminPassword('admin123'), false);
 });

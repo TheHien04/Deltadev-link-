@@ -4,6 +4,8 @@
  * @module config/env.config
  */
 
+import { deepFreeze } from '../utils/security.js';
+
 export const ENV_VERSION = '3.2.1';
 export const BUILD_DATE = '2026-09-07';
 
@@ -37,12 +39,6 @@ export const ENV = {
   isDevelopment,
   isStaging,
   isProduction,
-
-  apiUrl: isDevelopment
-    ? 'http://localhost:3000/api'
-    : isStaging
-      ? 'https://staging-api.deltadevlink.com'
-      : 'https://api.deltadevlink.com',
 
   analytics: {
     googleAnalyticsId: '',
@@ -119,17 +115,6 @@ export const getEnvName = () => {
 
 export const isFeatureEnabled = (featureName) => ENV.features[featureName] ?? false;
 
-export const getApiUrl = (endpoint) => `${ENV.apiUrl}${endpoint}`;
-
-Object.freeze(ENV);
-Object.freeze(ENV.analytics);
-Object.freeze(ENV.features);
-Object.freeze(ENV.performance);
-Object.freeze(ENV.cart);
-Object.freeze(ENV.social);
-Object.freeze(ENV.cdn);
-Object.freeze(ENV.pwa);
-Object.freeze(ENV.security);
-Object.freeze(ENV.locale);
+deepFreeze(ENV);
 
 export default ENV;

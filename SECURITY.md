@@ -1,149 +1,35 @@
 # Security Policy
 
-## 🔐 Supported Versions
+Supported versions: 3.x.
 
-We release patches for security vulnerabilities for the following versions:
+## Reporting
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 3.x.x   | ✅ Yes             |
-| < 3.0   | ❌ No              |
+Do not open a public GitHub issue for exploitable defects.
 
-## 🚨 Reporting a Vulnerability
+Email `thesundaybite@gmail.com` with:
 
-We take security seriously. If you discover a security vulnerability, please follow these steps:
+- type of issue
+- steps to reproduce
+- impact
+- a suggested fix if you have one
 
-### ⚠️ DO NOT create a public GitHub issue for security vulnerabilities
+Expect an initial reply within 48 hours.
 
-Instead:
+## What this repository actually provides
 
-1. **Email:** Send details to `security@deltadevlink.com`
-2. **Subject:** `[SECURITY] Brief description`
-3. **Include:**
-   - Type of vulnerability
-   - Steps to reproduce
-   - Potential impact
-   - Suggested fix (if any)
-   - Your contact information
+| Control | Reality |
+| --- | --- |
+| Host headers (`netlify.toml`, `vercel.json`) | `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, CSP |
+| Meta CSP on `index.html` / `admin.html` | Present; still allows `'unsafe-inline'` because of Tailwind Play CDN and inline scripts |
+| Input checks | Client-side only (`validation.js`). There is no application server and therefore no SQL surface |
+| Measurement | Consent Mode default denied; tags load only after opt-in and only with real IDs |
+| CDN libraries | AOS, Swiper, GSAP, Chart.js are pinned with Subresource Integrity. Tailwind Play CDN cannot be SRI-hashed |
+| Admin `/admin.html` | Client-side digest check and a 4-hour `sessionStorage` lock. Not an identity provider. Keep it off production or put it behind a real IdP |
+| Demo storefront accounts | SHA-256 in `localStorage`. Not a password vault |
 
-### Response Time
+## Before a public deploy
 
-- **Initial Response:** Within 48 hours
-- **Status Update:** Within 7 days
-- **Fix Timeline:** Depends on severity
-  - Critical: 1-3 days
-  - High: 3-7 days
-  - Medium: 7-14 days
-  - Low: 14-30 days
-
-## 🛡️ Security Measures
-
-### Current Security Features
-
-✅ **Headers:**
-- Content-Security-Policy (CSP)
-- X-Frame-Options: SAMEORIGIN
-- X-Content-Type-Options: nosniff
-- X-XSS-Protection: 1; mode=block
-- Referrer-Policy: strict-origin-when-cross-origin
-
-✅ **HTTPS:**
-- Enforced on GitHub Pages
-- Secure connections only
-
-✅ **Input Validation:**
-- Client-side validation
-- XSS protection
-- SQL injection prevention
-
-✅ **GDPR Compliance:**
-- Cookie consent banner
-- Privacy policy
-- User data rights
-
-✅ **Dependencies:**
-- CDN with HTTPS
-- Subresource Integrity (SRI) planned
-- Regular updates
-
-### Known Limitations
-
-⚠️ **Analytics IDs:**
-- Left empty on purpose
-- Tracking loads only after cookie consent and only when real IDs are set in `app.config.js`
-
-⚠️ **API Keys:**
-- No real API keys in repository
-- Use environment variables in production
-
-## 🔍 Security Best Practices
-
-### For Contributors
-
-1. **Never commit:**
-   - API keys, passwords, tokens
-   - Personal information
-   - Database credentials
-   - SSL certificates
-
-2. **Always:**
-   - Review code for vulnerabilities
-   - Use `.gitignore` properly
-   - Sanitize user inputs
-   - Validate data on both client and server
-
-3. **Testing:**
-   - Test for XSS vulnerabilities
-   - Check CSRF protection
-   - Verify authentication flows
-   - Test authorization rules
-
-### For Deployers
-
-1. **Before Deployment:**
-   - Replace placeholder analytics IDs
-   - Set up environment variables
-   - Enable HTTPS
-   - Configure security headers on server
-   - Review all third-party scripts
-
-2. **Monitoring:**
-   - Enable error logging
-   - Monitor failed login attempts
-   - Track suspicious activities
-   - Regular security audits
-
-## 📋 Security Checklist
-
-Before deploying to production:
-
-- [ ] Replace all placeholder analytics IDs
-- [ ] Remove debug code and console.logs
-- [ ] Enable HTTPS
-- [ ] Configure CSP headers
-- [ ] Set up error monitoring
-- [ ] Review user permissions
-- [ ] Test authentication flows
-- [ ] Verify data encryption
-- [ ] Check third-party dependencies
-- [ ] Run security scan tools
-- [ ] Review privacy policy compliance
-- [ ] Test GDPR compliance features
-
-## 🔗 Security Resources
-
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [MDN Web Security](https://developer.mozilla.org/en-US/docs/Web/Security)
-- [GDPR Compliance Guide](https://gdpr.eu/)
-
-## 📞 Contact
-
-**Security Team:**
-- Email: security@deltadevlink.com
-- Phone: 0373948649 (during business hours)
-
-**Response Time:** Within 48 hours
-
----
-
-Thank you for helping keep DeltaDev Link secure! 🙏
+- Rotate the admin digest in `src/js/utils/admin-auth.js`
+- Leave analytics IDs empty until the privacy policy and consent UI are reviewed together
+- Compile Tailwind, vendor remaining JS, and move CSP from `<meta>` to HTTP-only headers
+- Do not commit live measurement IDs, payment secrets, or a production passphrase

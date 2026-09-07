@@ -1,6 +1,7 @@
 /**
  * Demo-only admin gate.
  * This is a static-site lock screen, not production authentication.
+ * Rotate PASSWORD_HASH before any public deploy.
  * @module utils/admin-auth
  */
 
@@ -9,13 +10,9 @@ import { sha256Hex } from './security.js';
 const SESSION_KEY = 'deltadev_admin_session';
 const SESSION_TTL_MS = 4 * 60 * 60 * 1000;
 
-/** SHA-256("DeltaDev-Admin-2026") — change before any public deploy. */
-const PASSWORD_HASH = '8f3c6a1d0e2b9c5a7d4f1e8b6c0a3d9f2e5b8c1a4d7f0e3b6c9a2d5f8e1b4c7';
-
-async function expectedHash() {
-  // Live hash so the documented demo password always matches, even if the constant drifts.
-  return sha256Hex('DeltaDev-Admin-2026');
-}
+/** SHA-256 digest of the operator-held demo passphrase. Do not store the passphrase in source. */
+const PASSWORD_HASH =
+  'd10a184192c22cab101c7e755c949a99cbbd275f42ee978f6e5f9be0c38c4edb';
 
 export function hasValidAdminSession() {
   try {
@@ -35,8 +32,7 @@ export function hasValidAdminSession() {
 
 export async function verifyAdminPassword(password) {
   const incoming = await sha256Hex(String(password || ''));
-  const expected = await expectedHash();
-  return incoming === expected || incoming === PASSWORD_HASH;
+  return incoming === PASSWORD_HASH;
 }
 
 export function persistAdminSession() {
@@ -48,6 +44,11 @@ export function persistAdminSession() {
 
 export function clearAdminSession() {
   sessionStorage.removeItem(SESSION_KEY);
+  try {
+    localStorage.removeItem('adminAuthenticated');
+  } catch {
+    /* ignore quota / private mode */
+  }
 }
 
 export default {

@@ -4,15 +4,14 @@
  * loyalty program overview, newsletter subscribers, and analytics
  */
 
+import { clearAdminSession } from '../utils/admin-auth.js';
+
 export default class AdminDashboardManager {
     constructor(appState, config) {
         this.appState = appState;
         this.config = config;
         this.currentLanguage = 'en';
         this.currentSection = 'overview';
-        
-        // Admin credentials (in production, use proper authentication)
-        this.adminPassword = 'admin123';
         this.isAuthenticated = false;
         
         // Translations
@@ -187,9 +186,9 @@ export default class AdminDashboardManager {
     }
 
     init() {
-        console.log('AdminDashboardManager initialized');
         this.currentLanguage = this.appState.get('currentLanguage') || 'en';
-        this.checkAuthentication();
+        this.isAuthenticated = true;
+        this.showDashboard();
         this.setupEventListeners();
     }
 
@@ -197,110 +196,10 @@ export default class AdminDashboardManager {
         return this.translations[this.currentLanguage][key] || key;
     }
 
-    checkAuthentication() {
-        const isAuth = localStorage.getItem('adminAuthenticated');
-        this.isAuthenticated = isAuth === 'true';
-        
-        if (!this.isAuthenticated) {
-            this.showLoginScreen();
-        } else {
-            this.showDashboard();
-        }
-    }
-
-    showLoginScreen() {
-        const container = document.getElementById('adminContent');
-        if (!container) return;
-        
-        container.innerHTML = `
-            <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
-                <!-- Language Toggle for Login -->
-                <div class="absolute top-6 right-6">
-                    <div class="flex items-center bg-white rounded-lg p-1 shadow-md">
-                        <button id="loginLangViBtn" class="${this.currentLanguage === 'vi' ? 'bg-blue-100 text-blue-600' : 'text-gray-600'} px-3 py-1.5 rounded-md text-sm font-semibold transition-all" data-lang="vi">
-                            🇻🇳 VI
-                        </button>
-                        <button id="loginLangEnBtn" class="${this.currentLanguage === 'en' ? 'bg-blue-100 text-blue-600' : 'text-gray-600'} px-3 py-1.5 rounded-md text-sm font-semibold transition-all" data-lang="en">
-                            🇬🇧 EN
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
-                    <div class="text-center mb-8">
-                        <div class="bg-gradient-to-r from-blue-600 to-indigo-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                            </svg>
-                        </div>
-                        <h1 class="text-3xl font-bold text-gray-800">${this.t('adminLogin')}</h1>
-                    </div>
-                    
-                    <form id="adminLoginForm" class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">${this.t('password')}</label>
-                            <input 
-                                type="password" 
-                                id="adminPasswordInput"
-                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all"
-                                placeholder="••••••••"
-                                required
-                            >
-                        </div>
-                        
-                        <div id="loginError" class="hidden text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-2">
-                            ${this.t('wrongPassword')}
-                        </div>
-                        
-                        <button 
-                            type="submit"
-                            class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-xl hover:from-blue-700 hover:to-indigo-700 transition-all transform hover:scale-105 shadow-lg"
-                        >
-                            ${this.t('loginButton')}
-                        </button>
-                    </form>
-                    
-                    <p class="text-xs text-gray-500 text-center mt-6">
-                        Demo: admin123
-                    </p>
-                </div>
-            </div>
-        `;
-        
-        document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleLogin();
-        });
-        
-        // Language toggle for login screen
-        document.getElementById('loginLangViBtn')?.addEventListener('click', () => {
-            this.switchLanguage('vi');
-        });
-        
-        document.getElementById('loginLangEnBtn')?.addEventListener('click', () => {
-            this.switchLanguage('en');
-        });
-    }
-
-    handleLogin() {
-        const passwordInput = document.getElementById('adminPasswordInput');
-        const errorDiv = document.getElementById('loginError');
-        
-        if (passwordInput.value === this.adminPassword) {
-            localStorage.setItem('adminAuthenticated', 'true');
-            this.isAuthenticated = true;
-            this.showDashboard();
-        } else {
-            errorDiv.classList.remove('hidden');
-            passwordInput.value = '';
-            passwordInput.focus();
-        }
-    }
-
     handleLogout() {
-        localStorage.removeItem('adminAuthenticated');
+        clearAdminSession();
         this.isAuthenticated = false;
-        this.showLoginScreen();
+        window.location.reload();
     }
 
     showDashboard() {

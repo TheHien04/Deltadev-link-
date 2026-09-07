@@ -4,6 +4,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Disallow: /src/js/admin-app.js
+Disallow: /src/js/
 
 Sitemap: https://deltadevlink.com/sitemap.xml

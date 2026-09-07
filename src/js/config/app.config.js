@@ -4,6 +4,8 @@
  * @module config/app.config
  */
 
+import { deepFreeze } from '../utils/security.js';
+
 export const APP_CONFIG = {
     // Application Info
     app: {
@@ -188,7 +190,7 @@ export const APP_CONFIG = {
         siteName: 'DeltaDev Link',
         siteUrl: 'https://deltadevlink.com',
         twitterHandle: '@deltadevlink',
-        ogImage: '/src/assets/images/product-classic.svg'
+        ogImage: '/public/images/Home.jpg'
     },
 
     // Analytics — leave empty until real IDs are issued. Placeholders are never loaded.
@@ -211,7 +213,6 @@ export const APP_CONFIG = {
     }
 };
 
-// Freeze config to prevent modifications
-Object.freeze(APP_CONFIG);
+deepFreeze(APP_CONFIG);
 
 export default APP_CONFIG;

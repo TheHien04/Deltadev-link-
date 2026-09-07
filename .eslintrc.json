@@ -13,8 +13,14 @@
   "ignorePatterns": ["public/service-worker.js", "coverage/"],
   "rules": {
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": "off",
+    "no-console": "warn",
     "eqeqeq": ["error", "smart"],
     "prefer-const": "warn"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/js/utils/logger.js"],
+      "rules": { "no-console": "off" }
+    }
+  ]
 }
