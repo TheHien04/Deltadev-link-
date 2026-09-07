@@ -53,6 +53,7 @@ class AdminApp {
 
     async startDashboard() {
         try {
+            localStorage.setItem('adminAuthenticated', 'true');
             this.adminManager = new AdminDashboardManager(this.appState, APP_CONFIG);
             this.adminManager.init();
             window.adminDashboard = this.adminManager;
