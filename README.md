@@ -16,17 +16,264 @@ The application is a static front end. Product discovery, cart state, and accoun
 [![Node](https://img.shields.io/badge/node-%3E%3D20-informational.svg)](package.json)
 [![Version](https://img.shields.io/badge/version-3.2.1-lightgrey.svg)](package.json)
 
+**Contents:** [Purpose](#1-purpose) · [Product surfaces](#2-product-surfaces) · [Context](#3-context) · [MVP](#4-mvp-definition) · [Main architecture](#5-main-architecture) · [Technology stack](#6-technology-stack) · [Business rules](#7-business-rules) · [Operating flows](#8-operating-flows) · [Reproduction](#9-reproduction)
+
 ---
 
 ## 1. Purpose
 
 DeltaDev Link is a client-side commerce surface for a small food producer whose sales channel is messaging rather than card-not-present checkout. The system therefore optimizes for (i) bilingual product communication, (ii) validated lead capture, and (iii) a privacy-preserving analytics default — not for PCI-DSS payment flows.
 
-This document describes the **main architecture**, the **MVP boundary**, the **technology stack**, **business rules**, and **operating flows** as implemented in the repository. Claims that cannot be verified in code are marked as operator policy.
+This document records **product surfaces** (interface captures), the **main architecture**, the **MVP boundary**, the **technology stack**, **business rules**, and **operating flows**. Claims that cannot be verified in code are marked as operator policy.
 
 ---
 
-## 2. Context
+## 2. Product surfaces
+
+Interface captures below are from the current storefront (`index.html`) and the admin prototype (`admin.html`). They document UX. Settlement of funds is confirmed by the operator after a Zalo conversation (BR-ORD-09), not by a card gateway in this repository.
+
+### 2.1 Customer storefront
+
+#### Home
+
+![Homepage](public/images/Home.jpg)
+
+Hero, brand narrative (“Where Code Meets Craft”), and primary call to order. Locale switch and navigation are persistent.
+
+#### About
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/About.jpg" alt="About — producer story">
+      <p><strong>Origin.</strong> Cai Be, Tien Giang. Family recipe framed as 10–20 years of practice.</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/20+%20Years%20of%20excellence.jpg" alt="Excellence narrative">
+      <p><strong>Trust block.</strong> Awards, volume, and rating claims as published on the page (operator copy, not independently audited here).</p>
+    </td>
+  </tr>
+</table>
+
+#### Catalogue
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Products.jpg" alt="Product catalogue">
+      <p><strong>Browse.</strong> Search, category, and price filters.</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Products2.jpg" alt="Product grid">
+      <p><strong>Grid.</strong> Wishlist, compare, and add-to-cart actions.</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Product.jpg" alt="Product detail">
+      <p><strong>Detail.</strong> Gallery, specification, reviews.</p>
+    </td>
+  </tr>
+</table>
+
+#### Quality and licences
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Quality.jpg" alt="Quality certification">
+      <p><strong>Quality.</strong> Production-process narrative (ISO 9001:2015 stated on-page).</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Food%20Safety%20Certification.jpg" alt="Food safety">
+      <p><strong>Food safety.</strong> HACCP / GMP stated on-page.</p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Business%20License.jpg" alt="Business licence">
+      <p><strong>Licence.</strong> Business registration as displayed.</p>
+    </td>
+  </tr>
+</table>
+
+![Quality assurance process](public/images/Quality2.jpg)
+
+Laboratory, packaging, and cold-chain claims as shown in the quality section.
+
+![Production facility](public/images/Quality3.jpg)
+
+Facility and sourcing narrative.
+
+#### Order capture
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Order%20Now.jpg" alt="Order form — customer details">
+      <p><strong>Form.</strong> Name, Vietnamese mobile, address, SKU, quantity (BR-PII-01–04, BR-ORD-01).</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/Order%20Now%202.jpg" alt="Order form — review">
+      <p><strong>Review.</strong> Totals and preferred settlement method. Confirmation remains a Zalo handoff.</p>
+    </td>
+  </tr>
+</table>
+
+#### Settlement options shown in the UI
+
+These screens describe how the buyer *intends* to pay. They are not a PCI-DSS processor in this codebase.
+
+![Bank transfer information](public/images/Bank.jpg)
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/COD.jpg" alt="Cash on delivery">
+      <p><strong>COD.</strong> Pay on receipt; inspect before paying. Coverage per BR-OPS-01.</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/Bank%20Transfer.jpg" alt="Bank transfer">
+      <p><strong>Bank transfer.</strong> Account details and QR as published by the operator.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Momo.jpg" alt="MoMo">
+      <p><strong>MoMo.</strong> E-wallet option presented in the UI.</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/VNPay.jpg" alt="VNPay">
+      <p><strong>VNPay.</strong> Gateway option presented in the UI.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Zalopay.jpg" alt="ZaloPay">
+      <p><strong>ZaloPay.</strong> In-Zalo wallet option presented in the UI.</p>
+    </td>
+    <td width="50%"></td>
+  </tr>
+</table>
+
+#### Session features
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Favorite.jpg" alt="Wishlist">
+      <p><strong>Wishlist.</strong> Client-side favourites (`localStorage`).</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/shopping%20cart.jpg" alt="Shopping cart">
+      <p><strong>Cart.</strong> Quantity, voucher codes (BR-ORD-03–07), persistent cart.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Login.jpg" alt="Sign in">
+      <p><strong>Sign in.</strong> Demo account UI. Passwords hashed in the browser (BR-PII-05).</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/Sign%20up.jpg" alt="Register">
+      <p><strong>Register.</strong> Client-side registration; not a production IdP.</p>
+    </td>
+  </tr>
+</table>
+
+#### Engagement
+
+![Live chat launcher](public/images/chat.jpg)
+
+Chat launcher to Zalo / Facebook / WhatsApp (support, not an in-app agent).
+
+![Product questions](public/images/Ask%20Question.jpg)
+
+Product Q&amp;A surface.
+
+![Newsletter](public/images/Newsletter.jpg)
+
+Email capture for campaigns (stored locally in the prototype).
+
+![Testimonials](public/images/Testimonials.jpg)
+
+Reviews and ratings UI.
+
+![Loyalty](public/images/Loyalty.jpg)
+
+Points and tier UI (client-side; not an authoritative ledger).
+
+### 2.2 Admin prototype
+
+`admin.html` is a front-end operations sketch behind a 4-hour session lock (BR-ADM-01). It is not a production back office.
+
+#### Overview
+
+![Admin overview](public/images/Overview-Admin%20Panel.jpg)
+
+Metrics, charts, and quick actions as rendered by the prototype.
+
+![Admin analytics](public/images/Overview-Admin%20Panel%202.jpg)
+
+Trend and ranking views.
+
+#### Orders
+
+![Order list](public/images/Orders.jpg)
+
+Order table and status labels. Canonical fulfilment still happens on Zalo.
+
+Stated status path: Pending → Confirmed → Processing → Shipped → Delivered.
+
+#### Customers
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="public/images/Users.jpg" alt="User list">
+      <p><strong>Users.</strong> Mock customer list, purchase history, loyalty points.</p>
+    </td>
+    <td width="50%">
+      <img src="public/images/export%20users.jpg" alt="Export users">
+      <p><strong>Export.</strong> CSV export of the prototype dataset.</p>
+    </td>
+  </tr>
+</table>
+
+#### Loyalty, newsletter, catalogue
+
+![Loyalty configuration](public/images/Loyalty.jpg)
+
+<table>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Send%20email%202.jpg" alt="Compose email">
+      <p><strong>Campaign compose.</strong></p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Send%20bulk%20email.jpg" alt="Bulk email">
+      <p><strong>Bulk send UI.</strong></p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Export%20lits_Newsletter.jpg" alt="Subscriber list">
+      <p><strong>Subscriber list.</strong></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%">
+      <img src="public/images/Add%20new%20product.jpg" alt="Add product">
+      <p><strong>Add SKU.</strong></p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Edit%20product.jpg" alt="Edit product">
+      <p><strong>Edit SKU.</strong></p>
+    </td>
+    <td width="33%">
+      <img src="public/images/Export%20product.jpg" alt="Export catalogue">
+      <p><strong>Export catalogue.</strong></p>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 3. Context
 
 ```mermaid
 flowchart LR
@@ -63,11 +310,11 @@ The producer confirms price, stock, delivery slot, and payment **outside** this 
 
 ---
 
-## 3. MVP definition
+## 4. MVP definition
 
 The shipped system is an **MVP 1.0** in the GovTech sense: the smallest set of capabilities that lets a real customer discover a product and place a verified enquiry, with privacy defaults that would pass a basic PDPA / GDPR-style review.
 
-### 3.1 Must have (delivered)
+### 4.1 Must have (delivered)
 
 | ID | Capability | Evidence in repo |
 | --- | --- | --- |
@@ -80,11 +327,11 @@ The shipped system is an **MVP 1.0** in the GovTech sense: the smallest set of c
 | M7 | Installable PWA with resilient precache | `public/manifest.json`, `service-worker.js` |
 | M8 | WCAG-oriented landmarks and FAQ accordion | skip link, `aria-expanded`, `prefers-reduced-motion` |
 
-### 3.2 Should have (client-side only; not authoritative)
+### 4.2 Should have (client-side only; not authoritative)
 
 Wishlist, comparison (max 3 SKUs), reviews UI, loyalty UI, newsletter capture, live-chat launcher, demo admin dashboard. These persist in `localStorage` and must not be treated as a source of truth.
 
-### 3.3 Will not have in MVP 1.0
+### 4.3 Will not have in MVP 1.0
 
 - Card, e-wallet, or QR payment capture
 - Server-side accounts, inventory, or order ledger
@@ -92,7 +339,7 @@ Wishlist, comparison (max 3 SKUs), reviews UI, loyalty UI, newsletter capture, l
 - Compiled Tailwind / vendored third-party JS
 - Production identity for `/admin.html`
 
-### 3.4 Later increments (not in this tree)
+### 4.4 Later increments (not in this tree)
 
 | Phase | Intent |
 | --- | --- |
@@ -103,11 +350,11 @@ Wishlist, comparison (max 3 SKUs), reviews UI, loyalty UI, newsletter capture, l
 
 ---
 
-## 4. Main architecture
+## 5. Main architecture
 
 The architecture is a **layered browser application** with a single composition root. There is no application server. Persistence is the Web Storage API. Integration is outbound HTTPS to messaging and, optionally, measurement vendors.
 
-### 4.1 Logical layers
+### 5.1 Logical layers
 
 ```mermaid
 flowchart TB
@@ -156,7 +403,7 @@ flowchart TB
 | Domain | Prices, vouchers, validation, search similarity | Touch the DOM |
 | Infrastructure | Storage, cache, outbound links | Invent order IDs that look official |
 
-### 4.2 Module map
+### 5.2 Module map
 
 ```
 index.html                 document shell
@@ -174,7 +421,7 @@ public/                    manifest, service worker, robots, sitemap
 tests/                     Node.js test runner
 ```
 
-### 4.3 Runtime sequence (boot)
+### 5.3 Runtime sequence (boot)
 
 ```mermaid
 sequenceDiagram
@@ -209,11 +456,11 @@ Design constraints:
 
 ---
 
-## 5. Technology stack
+## 6. Technology stack
 
 Versions below are those referenced in `index.html`, `package.json`, and `admin.html`.
 
-### 5.1 Runtime (browser)
+### 6.1 Runtime (browser)
 
 | Concern | Choice | Version / pin | Role |
 | --- | --- | --- | --- |
@@ -230,7 +477,7 @@ Versions below are those referenced in `index.html`, `package.json`, and `admin.
 | Storage | `localStorage`, `sessionStorage` | — | Cart, locale, demo session |
 | Crypto (demo) | Web Crypto `SHA-256` | — | Demo password digest only |
 
-### 5.2 Tooling (Node, not shipped to visitors)
+### 6.2 Tooling (Node, not shipped to visitors)
 
 | Concern | Choice | Version |
 | --- | --- | --- |
@@ -241,7 +488,7 @@ Versions below are those referenced in `index.html`, `package.json`, and `admin.
 | Local origin | Python `http.server` | 3.x |
 | Host adapters | `netlify.toml`, `vercel.json` | security headers |
 
-### 5.3 External systems
+### 6.3 External systems
 
 | System | Integration style | Notes |
 | --- | --- | --- |
@@ -254,11 +501,11 @@ Target browsers: `> 1%`, last 2 versions, not dead, not IE 11 (`package.json` `b
 
 ---
 
-## 6. Business rules
+## 7. Business rules
 
 Rules are numbered so they can be tested and cited in reviews. **System-enforced** rules are implemented in code. **Operator policy** is communicated on the site (FAQ / copy) and is not technically binding.
 
-### 6.1 Catalogue and pricing
+### 7.1 Catalogue and pricing
 
 | ID | Rule | Enforcement |
 | --- | --- | --- |
@@ -267,7 +514,7 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 | BR-CAT-03 | Tax rate in config is 0. Shipping fee in config is 0. Operator may still charge delivery outside the app. | `cart.taxRate`, `cart.shippingFee` |
 | BR-CAT-04 | Comparison list holds at most 3 SKUs. | `ComparisonManager.maxCompare` |
 
-### 6.2 Cart and promotions
+### 7.2 Cart and promotions
 
 | ID | Rule | Enforcement |
 | --- | --- | --- |
@@ -281,7 +528,7 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 | BR-ORD-08 | Empty cart cannot check out. | `checkout` |
 | BR-ORD-09 | A successful form or cart checkout **does not** create a paid order. It opens Zalo. Confirmation is an operator act. | `openZalo` |
 
-### 6.3 Customer capture
+### 7.3 Customer capture
 
 | ID | Rule | Enforcement |
 | --- | --- | --- |
@@ -291,7 +538,7 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 | BR-PII-04 | Product selection is required on the order form. | `validateForm` |
 | BR-PII-05 | Demo account passwords require at least 8 characters and both letters and digits. Stored as SHA-256 hex, never reused as a real credential store. | `validatePassword`, `sha256Hex` |
 
-### 6.4 Locale, privacy, session
+### 7.4 Locale, privacy, session
 
 | ID | Rule | Enforcement |
 | --- | --- | --- |
@@ -301,7 +548,7 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 | BR-PRV-02 | Measurement scripts load only if `cookieConsent === 'all'` **and** IDs are configured and non-placeholder. | `Analytics.js`, `isConfiguredId` |
 | BR-ADM-01 | Admin prototype session TTL is 4 hours in `sessionStorage`. | `admin-auth.js` |
 
-### 6.5 Operator policy (stated on the site; not coded as a workflow engine)
+### 7.5 Operator policy (stated on the site; not coded as a workflow engine)
 
 | ID | Rule | Source |
 | --- | --- | --- |
@@ -312,9 +559,9 @@ Rules are numbered so they can be tested and cited in reviews. **System-enforced
 
 ---
 
-## 7. Operating flows
+## 8. Operating flows
 
-### 7.1 Customer order (happy path)
+### 8.1 Customer order (happy path)
 
 ```mermaid
 sequenceDiagram
@@ -342,7 +589,7 @@ sequenceDiagram
 
 Cart checkout follows the same terminal step: build a line-item message, apply voucher if valid, open Zalo. There is no payment callback into this origin.
 
-### 7.2 Consent and measurement
+### 8.2 Consent and measurement
 
 ```mermaid
 stateDiagram-v2
@@ -358,7 +605,7 @@ stateDiagram-v2
   CheckIds --> Denied: no — do not fetch vendors
 ```
 
-### 7.3 Locale
+### 8.3 Locale
 
 1. Read `?lang=` if it is `en` or `vi`.
 2. Else restore `appState.currentLanguage`.
@@ -366,7 +613,7 @@ stateDiagram-v2
 4. Apply `data-en` / `data-vi` (and placeholder variants) to the DOM.
 5. Persist and `history.replaceState` so the URL remains shareable.
 
-### 7.4 Admin prototype
+### 8.4 Admin prototype
 
 ```mermaid
 flowchart TD
@@ -382,7 +629,7 @@ This flow is a UX sketch. It is not an identity provider.
 
 ---
 
-## 8. Reproduction
+## 9. Reproduction
 
 Requires Python 3 (static file server) and Node.js 20+ (tests).
 
@@ -402,7 +649,7 @@ The suite covers BR-PII-01–03, password policy, Levenshtein similarity, Vietna
 
 ---
 
-## 9. Configuration
+## 10. Configuration
 
 Deploy-time values live in `src/js/config/app.config.js` (frozen at import). Environment detection lives in `src/js/config/env.config.js`.
 
@@ -418,7 +665,7 @@ Before a public deploy, replace `seo.siteUrl` if the production origin is not `h
 
 ---
 
-## 10. Threat model
+## 11. Threat model
 
 | Asset | Control | Residual risk |
 | --- | --- | --- |
@@ -432,7 +679,7 @@ Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md). Do 
 
 ---
 
-## 11. Deployment
+## 12. Deployment
 
 The tree is static. Any origin that serves the repository root is sufficient (Netlify, Vercel, GitHub Pages, or an object store).
 
@@ -444,7 +691,7 @@ Production hardening order: compile Tailwind, vendor JS, add SRI, move CSP from 
 
 ---
 
-## 12. Standards referenced
+## 13. Standards referenced
 
 | Standard | Application in this MVP |
 | --- | --- |
@@ -460,7 +707,7 @@ PDPA is cited as the **privacy posture** (consent, purpose limitation, no covert
 
 ---
 
-## 13. Repository conventions
+## 14. Repository conventions
 
 - JavaScript is ES2022 modules with JSDoc on public functions.
 - Formatting: Prettier (`.prettierrc.json`). Lint: ESLint 8 (`.eslintrc.json`).
@@ -469,7 +716,7 @@ PDPA is cited as the **privacy posture** (consent, purpose limitation, no covert
 
 ---
 
-## 14. Legal
+## 15. Legal
 
 - [Privacy policy](privacy-policy.html)
 - [Terms of service](terms-of-service.html)
