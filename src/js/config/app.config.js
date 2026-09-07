@@ -16,7 +16,7 @@ export const APP_CONFIG = {
 
     // Contact Information
     contact: {
-        businessName: 'DeltaDev Link - The Western IT Guy\'s Sausage',
+        businessName: 'DeltaDev Link',
         registrationCode: 'HCB-006-CBDV',
         phone: '+84373948649',
         phoneDisplay: '0373 948 649',
