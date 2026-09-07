@@ -687,7 +687,7 @@ Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md). Do 
 
 The tree is static. Any origin that serves the repository root is sufficient (Netlify, Vercel, GitHub Pages, or an object store).
 
-- `robots.txt` and `sitemap.xml` are duplicated at the site root because crawlers request `/robots.txt`, not `/public/robots.txt`.
+- `robots.txt` and `sitemap.xml` live at the repository root so crawlers can request `/robots.txt` and `/sitemap.xml`.
 - `netlify.toml` and `vercel.json` set `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy`. Python’s `http.server` does not apply those headers and does not map unknown paths to `404.html`.
 - `404.html` is for hosts that rewrite missing routes.
 

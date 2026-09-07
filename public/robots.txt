@@ -1,9 +1,0 @@
-# robots.txt for DeltaDev Link
-# https://deltadevlink.com
-
-User-agent: *
-Allow: /
-Disallow: /admin.html
-Disallow: /src/js/admin-app.js
-
-Sitemap: https://deltadevlink.com/sitemap.xml
